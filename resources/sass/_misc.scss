@@ -1,0 +1,26 @@
+
+// =======================================================
+// MDBootstrap
+// =======================================================
+
+.btn {
+    font-size: 1rem;
+    text-transform: none;
+    box-shadow: none !important;
+    padding: 0.375rem 0.75rem !important;
+    border-radius: 4px !important;
+    margin: 0;
+}
+button, .btn {
+    &:hover {
+        opacity: 0.8;
+    }
+}
+.form-control:focus, select:focus {
+    border-color: $main-color-lighten-1 !important;
+    box-shadow: 0 0 1px 1px $main-color-lighten-1 !important;
+    outline: 0 !important;
+}
+.form-control {
+    background-color: rgba(255, 255, 255, 0.9);
+}
