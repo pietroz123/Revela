@@ -31,7 +31,7 @@
         <div id="app">
             @include('includes.navbar')
             @yield('header-bar')
-            <main class="container py-2 @yield('main-class')">
+            <main class="@yield('main-class')">
                 @include('includes.alerts')
                 @yield('content')
             </main>

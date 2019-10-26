@@ -11,7 +11,6 @@ class PagesController extends Controller
      */
     public function landing()
     {
-        // TODO
-        echo 'Aqui vai a landing page';
+        return view('pages.landing');
     }
 }
