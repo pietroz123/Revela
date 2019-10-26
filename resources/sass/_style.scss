@@ -46,6 +46,25 @@ body {
     background-color: $main-color-lighten-1 !important;
 }
 
+
+// =======================================================
+// NAVBAR
+// =======================================================
+
+.navbar-brand {
+    img {
+        height: 42px;
+    }
+    span {
+        text-transform: uppercase;
+        font-size: 21px;      
+        vertical-align: middle;
+    }
+}
+#main-navbar {
+    background-color: transparent;
+}
+
 // =======================================================
 // LANDING PAGE
 // =======================================================
@@ -54,9 +73,14 @@ $i: url(../img/background/main.png);
 $g: linear-gradient(116.7deg, rgba(37, 130, 196, 0.65) 0%, rgba(37, 130, 196, 0) 100.8%);
 
 #hero-section {
+    padding-top: 9rem;
     min-height: 100vh;
     background-repeat: no-repeat;
     background-position: top;
     background-image: $i, $g;
     background-size: 100% auto;
+}
+
+.landing-cta {
+    padding: 0.40rem 0.80rem !important;
 }

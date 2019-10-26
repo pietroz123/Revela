@@ -1,7 +1,8 @@
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+<nav class="navbar navbar-expand-md navbar-light" id="main-navbar">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
-            {{ config('app.name', 'Laravel') }}
+            <img src="{{ asset('img/icons/logo.svg') }}" alt="Ícone da Revela">
+            <span>Revela</span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
@@ -10,7 +11,15 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
-
+                <li class="nav-item">
+                    <a class="nav-link" href="#!">Sobre</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#!">Como funciona</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#!">Pacotes</a>
+                </li>
             </ul>
 
             <!-- Right Side Of Navbar -->
