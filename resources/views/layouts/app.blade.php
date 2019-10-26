@@ -11,7 +11,7 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>@yield('title') • Name</title>
+        <title>@yield('title') • Revela</title>
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}"></script>

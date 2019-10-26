@@ -11,6 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+/**
+ * PAGES ROUTES
+ */
+Route::get('/', 'PagesController@landing');
+
+/**
+ * AUTHENTICATION ROUTES
+ */
+Auth::routes();
+
+/**
+ * DASHBOARD ROUTES
+ */
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
