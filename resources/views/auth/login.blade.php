@@ -16,8 +16,10 @@
 @section('header-bar')
     <div class="brand-logo">
         <div class="container">
-            <img src="{{ asset('img/icons/logo.svg') }}" class="brand-icon" alt="Logo Revela">
-            <span class="brand-name">Revela</span>
+            <a href="/">
+                <img src="{{ asset('img/icons/logo.svg') }}" class="brand-icon" alt="Logo Revela">
+                <span class="brand-name">Revela</span>
+            </a>
         </div>
     </div>
 @endsection

@@ -27,6 +27,12 @@
   vertical-align: middle;
   margin-left: 2px;
 }
+.brand-logo a {
+  color: inherit;
+}
+.brand-logo a:hover {
+  opacity: 0.8;
+}
 
 .btn-main {
   background-color: #F86863 !important;
