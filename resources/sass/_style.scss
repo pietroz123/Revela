@@ -136,6 +136,22 @@ body {
     padding-top: 3rem;
     box-shadow: none;
     padding-bottom: 6rem;
+    .nav-link {
+        background: linear-gradient(to bottom, $main-color-lighten-1 0%, $main-color-lighten-1 100%);
+        background-position: 0 100%;
+        background-repeat: repeat-x;
+        background-size: 0px 0px;
+        color: #000;
+        text-decoration: none;
+        transition: background-size .2s;
+        &:hover {
+            background-size: 4px 50px;
+            color: white;
+            opacity: 0.8;
+        }
+        margin-right: 5px;
+        margin-left: 5px;
+    }
 }
 
 // =======================================================

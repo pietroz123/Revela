@@ -120,6 +120,22 @@
   box-shadow: none;
   padding-bottom: 6rem;
 }
+#main-navbar .nav-link {
+  background: linear-gradient(to bottom, #f76465 0%, #f76465 100%);
+  background-position: 0 100%;
+  background-repeat: repeat-x;
+  background-size: 0px 0px;
+  color: #000;
+  text-decoration: none;
+  transition: background-size 0.2s;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+#main-navbar .nav-link:hover {
+  background-size: 4px 50px;
+  color: white;
+  opacity: 0.8;
+}
 
 #hero-section {
   min-height: 100vh;
