@@ -1,0 +1,155 @@
+
+// Adaptado de https://codepen.io/itbruno/pen/KwarLp
+
+%clearfix {
+	&:after, &:before {
+		content: '';
+		display: block;
+		width: 100%;
+		clear: both;
+	}
+}
+
+@mixin prefix($prop, $val) {
+	@each $prefix in '-webkit-', '-moz-', '-ms-', '' {
+		#{$prefix}#{$prop}: $val;
+	}
+}
+
+
+// Timeline
+#timeline {
+	width: 100%;
+    margin: 30px auto;
+	position: relative;
+    padding: 0 10px;
+	@include prefix(transition, all .4s ease);
+
+	&:before {
+		content:"";
+		width: 3px;
+		height: 100%;
+		background: #DFDFDF;
+		left: 50%;
+		top: 0;
+		position: absolute;
+	}
+
+	&:after {
+		content: "";
+		clear: both;
+		display: table;
+		width: 100%;
+	}
+	
+	.timeline-item {
+		margin-bottom: 50px;
+        position: relative;
+		@extend %clearfix;
+
+		.timeline-icon {
+            background: #61839C;
+            width: 41px;
+            height: 41px;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            overflow: hidden;
+            margin-left: -19px;
+			@include prefix(border-radius, 50%);
+
+			svg {
+				position: relative;
+				top: 14px;
+				left: 14px;
+            }
+            
+            text-align: center;
+            padding-top: 7px;
+            color: white;
+            font-size: 20px;
+		}
+
+		.timeline-content {
+            width: 45%;
+			background: #fff;
+			padding: 20px;
+			@include prefix(box-shadow, 0 3px 0 rgba(0,0,0,0.1));
+			@include prefix(border-radius, 5px);
+            @include prefix(transition, all .3s ease);
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+			h2 {
+                font-size: 18px;
+                padding: 10px 19px;
+				background: $main-color-v2;
+				color: #fff;
+				margin: -20px -20px 0 -20px;
+				font-weight: 300;
+				@include prefix(border-radius, 3px 3px 0 0);
+            }
+            
+            p {
+                padding: 12px 0px 0px;
+                margin-bottom: 0;
+            }
+
+			&:before {
+				content: '';
+				position: absolute;
+				left: 45%;
+				top: 15px;
+				width: 0; 
+				height: 0; 
+				border-top: 7px solid transparent;
+				border-bottom: 7px solid transparent; 
+				border-left:7px solid $main-color-v2; 
+			}
+
+			&.right {
+				float: right;
+
+				&:before {
+					content: '';
+					right: 45%;
+					left: inherit;
+					border-left: 0;
+					border-right: 7px solid $main-color-v2;
+				}
+            }
+            
+            &.left {
+                text-align: right;
+            }
+		}
+	}
+}
+
+@media screen and (max-width: 768px) {
+	#timeline {
+		margin: 30px;
+		padding: 0px;
+    width: 90%;
+		&:before {
+			left: 0;
+		}
+		
+		.timeline-item {
+			.timeline-content {
+				width: 90%;
+				float: right;
+				
+				&:before, &.right:before {
+					left: 10%;
+					margin-left: -6px;
+					border-left: 0;
+					border-right: 7px solid $main-color-v2;
+				}
+			}
+
+			.timeline-icon {
+				left: 0;
+			}
+		}
+	}
+}
