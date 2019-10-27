@@ -113,6 +113,9 @@
   font-size: 21px;
   vertical-align: middle;
 }
+.navbar-brand:hover {
+  color: #DB3D44 !important;
+}
 
 #main-navbar {
   background-color: transparent;
@@ -137,12 +140,19 @@
   opacity: 0.8;
 }
 
-#hero-section {
-  min-height: 100vh;
+#main-section {
   background-repeat: no-repeat;
   background-position: top;
   background-image: url(../img/background/main.png), linear-gradient(116.7deg, rgba(37, 130, 196, 0.65) 0%, rgba(37, 130, 196, 0) 100.8%);
   background-size: 100% auto;
+}
+
+#hero-section {
+  min-height: 100vh;
+}
+
+#albums-section {
+  min-height: 100vh;
 }
 
 .btn {
