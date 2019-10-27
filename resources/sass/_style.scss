@@ -133,6 +133,9 @@ body {
 }
 #main-navbar {
     background-color: transparent;
+    padding-top: 3rem;
+    box-shadow: none;
+    padding-bottom: 6rem;
 }
 
 // =======================================================
@@ -143,7 +146,6 @@ $i: url(../img/background/main.png);
 $g: linear-gradient(116.7deg, rgba(37, 130, 196, 0.65) 0%, rgba(37, 130, 196, 0) 100.8%);
 
 #hero-section {
-    padding-top: 9rem;
     min-height: 100vh;
     background-repeat: no-repeat;
     background-position: top;

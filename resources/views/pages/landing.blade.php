@@ -1,10 +1,12 @@
-@extends('layouts.app')
+@extends('layouts.landing')
 
 @section('title', 'Landing')
 
 @section('content')
-    
+
     <section id="hero-section">
+    
+        @include('includes.navbar')
 
         <div class="container">
             <div class="row">
@@ -15,9 +17,6 @@
                         <span class="content">Começar agora</span>
                         <span class="icon"><i class="fa fa-arrow-right" aria-hidden="true"></i></span>
                     </a>
-                    {{-- <a href="#!" class="btn btn-primary btn-main landing-cta">
-                        Começar agora
-                    </a> --}}
                 </div>
             </div>
         </div>

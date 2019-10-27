@@ -116,10 +116,12 @@
 
 #main-navbar {
   background-color: transparent;
+  padding-top: 3rem;
+  box-shadow: none;
+  padding-bottom: 6rem;
 }
 
 #hero-section {
-  padding-top: 9rem;
   min-height: 100vh;
   background-repeat: no-repeat;
   background-position: top;
