@@ -27,6 +27,10 @@ body {
 // MISCS
 // =======================================================
 
+.bg-main { background-color: $main-color; }
+.bg-main.lighten-1 { background-color: $main-color-lighten-1; }
+.bg-stylish-grey { background-color: $stylish-grey; }
+
 .brand-logo {
     padding-top: 5rem;
     .brand-name {
@@ -230,7 +234,7 @@ $g: linear-gradient(116.7deg, rgba(37, 130, 196, 0.65) 0%, rgba(37, 130, 196, 0)
 .plan-deal {
     text-align: center;
     padding: 12px 0;
-    background-color: #475f6c;
+    background-color: $stylish-grey;
     color: white;
     font-size: 20px;
 }
