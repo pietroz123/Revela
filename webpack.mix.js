@@ -28,3 +28,6 @@ mix.scripts([
     'resources/lib/mdbootstrap/js/mdb.js',
     'resources/lib/mdbootstrap/js/datatables.js',
 ], 'public/js/mdbootstrap.js');
+
+// Scripts Pages
+mix.scripts('resources/js/pages/landing.js', 'public/js/pages/landing.js');

@@ -175,3 +175,7 @@
 
 
 @endsection
+
+@section('scripts')
+    <script src="{{ asset('js/pages/landing.js') }}"></script>
+@endsection

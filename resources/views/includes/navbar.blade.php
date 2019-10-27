@@ -12,13 +12,13 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#!">Sobre</a>
+                    <a class="nav-link main-section" href="#!">Sobre</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#!">Como funciona</a>
+                    <a class="nav-link steps-section" href="#!">Como funciona</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#!">Pacotes</a>
+                    <a class="nav-link plans-section" href="#!">Pacotes</a>
                 </li>
             </ul>
 
