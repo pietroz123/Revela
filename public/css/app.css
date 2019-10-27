@@ -195,6 +195,25 @@ a:hover {
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
+@-webkit-keyframes autofill {
+  to {
+    color: #666;
+    background: rgba(255, 255, 255, 0.9);
+  }
+}
+@keyframes autofill {
+  to {
+    color: #666;
+    background: rgba(255, 255, 255, 0.9);
+  }
+}
+input:-webkit-autofill {
+  -webkit-animation-name: autofill;
+  animation-name: autofill;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
 #timeline .timeline-item:after, #timeline .timeline-item:before {
   content: "";
   display: block;
