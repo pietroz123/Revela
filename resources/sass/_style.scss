@@ -181,3 +181,56 @@ $g: linear-gradient(116.7deg, rgba(37, 130, 196, 0.65) 0%, rgba(37, 130, 196, 0)
     padding-bottom: 4rem;
     background-color: #F5F5F5;
 }
+
+#plans-section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    h2 {
+        padding-bottom: 4rem;
+    }
+}
+.plans {
+    display: flex;
+    justify-content: center;
+    height: 500px;
+}
+.plan-card {
+    width: 18rem;
+    align-self: flex-end;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    .card-body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        img {
+            width: 90px;
+            margin-bottom: 0.5rem;
+        }
+    }
+    .plan-price {
+        font-weight: 500 !important;
+    }
+    .plan-description {
+        text-align: center;
+        width: 200px;
+    }
+    &:not(:last-of-type) {
+        margin-right: 50px;
+    }
+    &:nth-of-type(2) {
+        align-self: flex-start;
+    }
+    h4 {
+        margin-top: 0.2rem;
+        &:last-of-type {
+            margin-bottom: 1rem;
+        }
+    }
+}
+.plan-deal {
+    text-align: center;
+    padding: 12px 0;
+    background-color: #565656;
+    color: white;
+    font-size: 20px;
+}

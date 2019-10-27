@@ -100,5 +100,62 @@
 
     </section>
 
+    <section id="plans-section">
+
+        <div class="container">
+
+            <h2>Nossos pacotes</h2>
+            
+            <div class="plans">
+
+                <div class="card plan-card">
+                    <div class="plan-deal">
+                        <span>Para começar</span>
+                    </div>
+                    <div class="card-body">
+                        <img src="{{ asset('img/icons/camera.svg') }}" alt="Câmera fotográfica vermelha">
+                        <h4>Iniciante</h4>
+                        <h4>1 mês</h4>
+                        <h4 class="plan-price">R$ 29.90</h4>
+                        <p class="plan-description">Perfeito para quem quer começar a relembrar memórias.</p>
+                        <a href="#!" class="btn btn-primary btn-main text-uppercase">Comprar</a>
+                    </div>
+                </div>
+    
+                <div class="card plan-card">
+                    <div class="plan-deal">
+                        <span>Mais vendido</span>
+                    </div>
+                    <div class="card-body">
+                        <img src="{{ asset('img/icons/photo-album.svg') }}" alt="Álbum de colecionador">
+                        <h4>Colecionador</h4>
+                        <h4>3 meses</h4>
+                        <h4 class="plan-price">R$ 24.90</h4>
+                        <p class="plan-description">Perfeito para quem tem o costume de revelar fotos.</p>
+                        <a href="#!" class="btn btn-primary btn-main text-uppercase">Comprar</a>
+                    </div>
+                </div>
+    
+                <div class="card plan-card">
+                    <div class="plan-deal">
+                        <span>Melhor preço</span>
+                    </div>
+                    <div class="card-body">
+                        <img src="{{ asset('img/icons/polaroid.svg') }}" alt="Câmera Polaroid">
+                        <h4>Nostalgia</h4>
+                        <h4>6 meses</h4>
+                        <h4 class="plan-price">R$ 18.90</h4>
+                        <p class="plan-description">Perfeito para quem não quer perder sequer um momento.</p>
+                        <a href="#!" class="btn btn-primary btn-main text-uppercase">Comprar</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
 
 @endsection
