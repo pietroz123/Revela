@@ -156,6 +156,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-image: url(../img/background/main.png), linear-gradient(116.7deg, rgba(37, 130, 196, 0.65) 0%, rgba(37, 130, 196, 0) 100.8%);
+  background-size: 100% auto;
 }
 
 #hero-section {
