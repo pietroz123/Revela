@@ -42,25 +42,25 @@
     <div class="container text-center text-md-left mt-5">
 
         <!-- Grid row -->
-        <div class="row mt-3">
+        <div class="row mt-3 d-flex justify-content-between">
 
             <!-- Grid column -->
-            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <div class="col-md-3 col-lg-4 col-xl-3 mb-4">
 
                 <!-- Content -->
                 <h6 class="text-uppercase font-weight-bold">Revela</h6>
-                <hr class="bg-main lighten-1 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                <hr class="bg-main lighten-1 mb-4 mt-0 d-inline-block" style="width: 60px;">
                 <p>Receba albuns personalizados todos os meses com os seus melhores momentos.</p>
 
             </div>
             <!-- Grid column -->
 
             <!-- Grid column -->
-            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <div class="col-md-3 col-lg-2 col-xl-2 mb-4">
 
                 <!-- Links -->
                 <h6 class="text-uppercase font-weight-bold">Links</h6>
-                <hr class="bg-main lighten-1 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                <hr class="bg-main lighten-1 mb-4 mt-0 d-inline-block" style="width: 60px;">
                 <p>
                     <a href="#!">Sobre a Revela</a>
                 </p>
@@ -78,11 +78,11 @@
             <!-- Grid column -->
 
             <!-- Grid column -->
-            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <div class="col-md-4 col-lg-3 col-xl-3 mb-md-0 mb-4">
 
                 <!-- Links -->
                 <h6 class="text-uppercase font-weight-bold">Contato</h6>
-                <hr class="bg-main lighten-1 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                <hr class="bg-main lighten-1 mb-4 mt-0 d-inline-block" style="width: 60px;">
                 <p><i class="fas fa-home mr-3"></i> Sorocaba, SP 10012, Brasil</p>
                 <p><i class="fas fa-envelope mr-3"></i> support@revela.com.br</p>
                 <p><i class="fas fa-phone mr-3"></i> + 0800 992 8392</p>
