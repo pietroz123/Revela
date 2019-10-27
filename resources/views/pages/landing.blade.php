@@ -157,5 +157,21 @@
 
     </section>
 
+    <section id="start">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <h2>Começe a relembrar seus melhores momentos hoje</h2>
+                    <a class="cta-home mt-3" href="#!">
+                        <span class="content">Começar agora</span>
+                        <span class="icon"><i class="fa fa-arrow-right" aria-hidden="true"></i></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
 
 @endsection
