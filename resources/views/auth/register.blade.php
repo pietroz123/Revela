@@ -30,7 +30,7 @@
     <h3 class="pt-5 pb-4">Seja Bem Vindo!</h3>
 
     <div class="row">
-        <div class="col-5">
+        <div class="col-12 col-lg-6 col-md-8">
             <form method="POST" action="{{ route('register') }}">
                 @csrf
         
