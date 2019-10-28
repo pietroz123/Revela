@@ -171,7 +171,7 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-6">
+                <div class="col-12 col-md-7 col-lg-6">
                     <h2>Começe a relembrar seus melhores momentos hoje</h2>
                     <a class="cta-home mt-3" href="#!">
                         <span class="content">Começar agora</span>

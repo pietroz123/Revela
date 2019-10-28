@@ -461,4 +461,12 @@ input:-webkit-autofill {
   .plans .plan-card:not(:last-of-type) {
     margin-bottom: 15px;
   }
+
+  #main-navbar {
+    transition: 0.25s all ease;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    background: white;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  }
 }
