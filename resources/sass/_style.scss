@@ -196,7 +196,7 @@ $g: linear-gradient(116.7deg, rgba(37, 130, 196, 0.65) 0%, rgba(37, 130, 196, 0)
 .plans {
     display: flex;
     justify-content: center;
-    height: 500px;
+    height: 520px;
 }
 .plan-card {
     width: 18rem;
@@ -213,22 +213,36 @@ $g: linear-gradient(116.7deg, rgba(37, 130, 196, 0.65) 0%, rgba(37, 130, 196, 0)
     }
     .plan-price {
         font-weight: 500 !important;
+        margin: 1rem 0;
+        span {
+            &:first-of-type, &:last-of-type {
+                font-size: 14px;
+            }
+            &:nth-child(2) {
+                font-size: 2rem;
+            }
+            &::last-of-type {
+                color: #9a9a9a;
+            }
+        }
     }
     .plan-description {
         text-align: center;
         width: 200px;
     }
     &:not(:last-of-type) {
-        margin-right: 50px;
+        margin-right: 30px;
     }
     &:nth-of-type(2) {
         align-self: flex-start;
     }
     h4 {
         margin-top: 0.2rem;
-        &:last-of-type {
-            margin-bottom: 1rem;
-        }
+    }
+    .btn-buy {
+        padding: 0.5rem 2rem !important;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
     }
 }
 .plan-deal {

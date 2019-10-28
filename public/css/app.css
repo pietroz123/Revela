@@ -184,7 +184,7 @@
 .plans {
   display: flex;
   justify-content: center;
-  height: 500px;
+  height: 520px;
 }
 
 .plan-card {
@@ -203,13 +203,23 @@
 }
 .plan-card .plan-price {
   font-weight: 500 !important;
+  margin: 1rem 0;
+}
+.plan-card .plan-price span:first-of-type, .plan-card .plan-price span:last-of-type {
+  font-size: 14px;
+}
+.plan-card .plan-price span:nth-child(2) {
+  font-size: 2rem;
+}
+.plan-card .plan-price span::last-of-type {
+  color: #9a9a9a;
 }
 .plan-card .plan-description {
   text-align: center;
   width: 200px;
 }
 .plan-card:not(:last-of-type) {
-  margin-right: 50px;
+  margin-right: 30px;
 }
 .plan-card:nth-of-type(2) {
   align-self: flex-start;
@@ -217,8 +227,10 @@
 .plan-card h4 {
   margin-top: 0.2rem;
 }
-.plan-card h4:last-of-type {
-  margin-bottom: 1rem;
+.plan-card .btn-buy {
+  padding: 0.5rem 2rem !important;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
 }
 
 .plan-deal {
