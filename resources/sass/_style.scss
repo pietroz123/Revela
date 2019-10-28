@@ -142,7 +142,8 @@ body {
     background-color: transparent;
     padding-top: 3rem;
     box-shadow: none;
-    padding-bottom: 6rem;
+    padding-bottom: 3rem;
+    transition: 0.25s all ease;
     .nav-link {
         background: linear-gradient(to bottom, $main-color-lighten-1 0%, $main-color-lighten-1 100%);
         background-position: 0 100%;
@@ -158,6 +159,14 @@ body {
         }
         margin-right: 5px;
         margin-left: 5px;
+    }
+    &.scrolled {
+        transition: 0.25s all ease;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        background: white;
+        -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
     }
 }
 
@@ -178,9 +187,12 @@ $g: linear-gradient(116.7deg, rgba(37, 130, 196, 0.65) 0%, rgba(37, 130, 196, 0)
     background-size: 100% auto;
 }
 #hero-section {
+    padding-top: 9rem;
     min-height: 100vh;
 }
 #albums-section {
+    padding-bottom: 3rem;
+    padding-top: 3rem;
     min-height: 100vh;
 }
 #steps-section {

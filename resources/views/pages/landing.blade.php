@@ -26,7 +26,7 @@
     
         </section>
     
-        <section id="albums-section">
+        <section id="albums-section" class="nav-waypoint">
     
             <div class="container">
                 <div class="row">

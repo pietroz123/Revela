@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-md navbar-light" id="main-navbar">
+<nav class="navbar navbar-expand-md navbar-light fixed-top" id="main-navbar">
     <div class="container">
-        <a class="navbar-brand" href="{{ url('/') }}">
+        <a class="navbar-brand" href="#!">
             <img src="{{ asset('img/icons/logo.svg') }}" alt="Ícone da Revela">
             <span>Revela</span>
         </a>
