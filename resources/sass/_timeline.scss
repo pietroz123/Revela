@@ -129,7 +129,7 @@
 	#timeline {
 		margin: 30px;
 		padding: 0px;
-    width: 90%;
+    	width: 90%;
 		&:before {
 			left: 0;
 		}
@@ -144,6 +144,10 @@
 					margin-left: -6px;
 					border-left: 0;
 					border-right: 7px solid $main-color-v2;
+				}
+
+				&.left {
+					text-align: left;
 				}
 			}
 

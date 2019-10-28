@@ -13,7 +13,7 @@
     
             <div class="container">
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-12 col-md-9 col-lg-6">
                         <h2>Tenha todas as suas fotos na palma da sua mão. Literalmente.</h2>
                         <p>Revela é a plataforma que te ajuda a liberar espaço no seu celular, colocando-as em um álbum digital todo mês.</p>
                         <a class="cta-home mt-3" href="#!">
@@ -30,7 +30,7 @@
     
             <div class="container">
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-12 col-md-9 col-lg-6">
                         <h2>Receba um álbum personalizado todo mês com seus momentos mais importantes.</h2>
                         <p>Garantimos álbuns personalizados todo mês de acordo com as estações do ano, eventos e festividades.</p>
                     </div>
