@@ -257,6 +257,15 @@ $g: linear-gradient(116.7deg, rgba(37, 130, 196, 0.65) 0%, rgba(37, 130, 196, 0)
         padding: 0.5rem 2rem !important;
         margin-top: 1rem;
         margin-bottom: 2rem;
+        background-color: white !important;
+        color: $main-color-lighten-1;
+        border: 2px solid $main-color-lighten-1;
+        font-weight: 500;
+        &:hover {
+            background-color: $main-color-lighten-1 !important;
+            color: white;
+            opacity: 1;
+        }
     }
 }
 .plan-deal {

@@ -122,7 +122,7 @@
                             <span>29.90</span>
                             <span>/mês</span>
                         </h4>
-                        <a href="#!" class="btn btn-primary btn-main text-uppercase btn-buy">Comprar</a>
+                        <a href="#!" class="btn btn-main text-uppercase btn-buy">Comprar</a>
                     </div>
                 </div>
     
@@ -139,7 +139,7 @@
                                 <span>24.90</span>
                                 <span>/mês</span>
                             </h4>
-                        <a href="#!" class="btn btn-primary btn-main text-uppercase btn-buy">Comprar</a>
+                        <a href="#!" class="btn btn-main text-uppercase btn-buy">Comprar</a>
                     </div>
                 </div>
     
@@ -156,7 +156,7 @@
                                 <span>18.90</span>
                                 <span>/mês</span>
                             </h4>
-                        <a href="#!" class="btn btn-primary btn-main text-uppercase btn-buy">Comprar</a>
+                        <a href="#!" class="btn btn-main text-uppercase btn-buy">Comprar</a>
                     </div>
                 </div>
 

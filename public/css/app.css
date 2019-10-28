@@ -245,6 +245,15 @@
   padding: 0.5rem 2rem !important;
   margin-top: 1rem;
   margin-bottom: 2rem;
+  background-color: white !important;
+  color: #f76465;
+  border: 2px solid #f76465;
+  font-weight: 500;
+}
+.plan-card .btn-buy:hover {
+  background-color: #f76465 !important;
+  color: white;
+  opacity: 1;
 }
 
 .plan-deal {
