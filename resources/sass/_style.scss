@@ -168,10 +168,13 @@ body {
 $i: url(../img/background/main.png);
 $g: linear-gradient(116.7deg, rgba(37, 130, 196, 0.65) 0%, rgba(37, 130, 196, 0) 100.8%);
 
+.landing-page {
+    background: $g;
+}
 #main-section {
     background-repeat: no-repeat;
     background-position: center;
-    background-image: $i, $g;
+    background-image: $i;
     background-size: 100% auto;
 }
 #hero-section {
@@ -183,7 +186,6 @@ $g: linear-gradient(116.7deg, rgba(37, 130, 196, 0.65) 0%, rgba(37, 130, 196, 0)
 #steps-section {
     padding-top: 4rem;
     padding-bottom: 4rem;
-    background-color: #F5F5F5;
 }
 
 #plans-section {
@@ -254,6 +256,5 @@ $g: linear-gradient(116.7deg, rgba(37, 130, 196, 0.65) 0%, rgba(37, 130, 196, 0)
 }
 
 #start {
-    background: $g;
     padding: 80px 0;
 }
