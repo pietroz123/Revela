@@ -474,6 +474,13 @@ input:-webkit-autofill {
     background-image: unset !important;
   }
 
+  #hero-section {
+    background-repeat: no-repeat;
+    background-position: right 50% bottom;
+    background-image: url(../img/background/mobile2.png);
+    background-size: 80%;
+  }
+
   #albums-section {
     background-repeat: no-repeat;
     background-position: bottom;
