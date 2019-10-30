@@ -82,6 +82,12 @@
 
 @section('dashboard-content')
 
-    <h1>Dashboard de {{ Auth::user()->name }}</h1>
+    <h1>Bem Vindo de Volta, {{ Auth::user()->name }}</h1>
+
+    <p class="mt-5">O seu álbum do mês já está liberado</p>
+
+    <a href="#!" class="btn btn-light btn-solicitar">
+        Solicitar meu álbum
+    </a>
     
 @endsection

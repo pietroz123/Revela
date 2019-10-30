@@ -511,6 +511,10 @@ input:-webkit-autofill {
   width: 100%;
   padding: 100px 150px;
 }
+.dashboard-content .btn-solicitar {
+  padding: 10px 30px !important;
+  box-shadow: 3px 3px 0px #000000 !important;
+}
 
 /**
  * Sidebar
