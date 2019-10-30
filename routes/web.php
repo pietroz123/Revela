@@ -25,3 +25,5 @@ Auth::routes();
  * DASHBOARD ROUTES
  */
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+
+Route::get('/dashboard/album-do-mes', 'DashboardController@album')->name('dashboard.album-do-mes');

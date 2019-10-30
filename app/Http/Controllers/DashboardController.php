@@ -25,4 +25,9 @@ class DashboardController extends Controller
     {
         return view('dashboard.dashboard-index');
     }
+
+    public function album()
+    {
+        return view('dashboard.dashboard-album');
+    }
 }

@@ -2,7 +2,6 @@
 
 @section('title', 'Dashboard')
 
-
 @section('dashboard-sidebar')
 
     {{-- <div class="dashboard-logo">
@@ -82,12 +81,26 @@
 
 @section('dashboard-content')
 
-    <h1>Bem Vindo de Volta, {{ Auth::user()->name }}</h1>
+    <h2>Álbum do Mês ({{ \Carbon\Carbon::now()->format('F') }} de {{ \Carbon\Carbon::now()->year }})</h2>   
 
-    <p class="mt-5">O seu álbum do mês já está liberado</p>
+    <h5 class="mt-5">Selecionar Template</h5>
 
-    <a href="{{ route('dashboard.album-do-mes') }}" class="btn btn-light btn-solicitar">
-        Solicitar meu álbum
-    </a>
-    
+    <h5 class="mt-5">Configurações do Álbum</h5>
+
+    <div class="form-group row mt-4">
+        <div class="col-md-4">
+            <label for="album-name">Nome do Álbum</label>
+            <input class="form-control" name="album-name" id="album-name" type="text" placeholder="Nome do álbum">
+        </div>
+    </div>
+
+    <div class="form-group row mt-4">
+        <div class="col-md-4">
+            <label for="album-description">Descrição Especial (Opcional)</label>
+            <textarea class="form-control" id="album-description" rows="3" placeholder="Descrição"></textarea>
+        </div>   
+    </div>
+
+    <h5 class="mt-5">Importar Fotos</h5>
+
 @endsection
