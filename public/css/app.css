@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css?family=Lato:400,400i&display=swap);@import url(https://fonts.googleapis.com/css?family=Oswald:300,400,500&display=swap);@import url(https://fonts.googleapis.com/css?family=Rajdhani:500,600);@import url(https://fonts.googleapis.com/css?family=Bitter&display=swap);@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=swap);@import url(https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap);@import url(https://fonts.googleapis.com/css?family=Lora&display=swap);@import url(https://fonts.googleapis.com/css?family=Montserrat:400,500,600&display=swap);@import url(https://fonts.googleapis.com/css?family=Asap:400,500,600&display=swap);@import url(https://fonts.googleapis.com/css?family=Exo:400,500,600&display=swap);body {
+@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css?family=Lato:400,400i&display=swap);@import url(https://fonts.googleapis.com/css?family=Oswald:300,400,500&display=swap);@import url(https://fonts.googleapis.com/css?family=Rajdhani:500,600);@import url(https://fonts.googleapis.com/css?family=Bitter&display=swap);@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=swap);@import url(https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap);@import url(https://fonts.googleapis.com/css?family=Lora&display=swap);@import url(https://fonts.googleapis.com/css?family=Montserrat:400,500,600&display=swap);@import url(https://fonts.googleapis.com/css?family=Asap:400,500,600&display=swap);@import url(https://fonts.googleapis.com/css?family=Exo:400,500,600&display=swap);@import url(https://fonts.googleapis.com/css?family=Nunito+Sans:400,600&display=swap);body {
   font-family: "Nunito", sans-serif !important;
   font-family: "Lato", sans-serif !important;
   font-family: "Oswald", sans-serif !important;
@@ -490,6 +490,8 @@ input:-webkit-autofill {
 }
 .dashboard-wrapper {
   display: flex;
+  font-family: "Nunito Sans", sans-serif !important;
+  font-size: 15px;
 }
 
 .dashboard-sidebar {
@@ -509,7 +511,7 @@ input:-webkit-autofill {
 
 .dashboard-content {
   width: 100%;
-  padding: 100px 150px;
+  padding: 60px 75px;
 }
 .dashboard-content .btn-solicitar {
   padding: 10px 30px !important;

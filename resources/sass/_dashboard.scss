@@ -9,6 +9,8 @@
 
 .dashboard-wrapper {
     display: flex;
+    font-family: $font-nunito-sans !important;
+    font-size: 15px;
 }
 .dashboard-sidebar {
     width: 400px;
@@ -30,7 +32,7 @@
 }
 .dashboard-content {
     width: 100%;
-    padding: 100px 150px;
+    padding: 60px 75px;
 
     .btn-solicitar {
         padding: 10px 30px !important;
