@@ -9,7 +9,7 @@
 
 @section('dashboard-content')
 
-    <h1>Bem Vindo de Volta, {{ Auth::user()->name }}</h1>
+    <h2>Bem Vindo de Volta, {{ Auth::user()->name }}</h2>
 
     <p class="mt-5">O seu álbum do mês já está liberado</p>
 

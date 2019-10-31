@@ -26,8 +26,13 @@ class DashboardController extends Controller
         return view('dashboard.dashboard-index');
     }
 
-    public function album()
+    public function albumDoMes()
     {
-        return view('dashboard.dashboard-album');
+        return view('dashboard.dashboard-album-do-mes');
+    }
+
+    public function meusPedidos()
+    {
+        return view('dashboard.dashboard-meus-pedidos');
     }
 }

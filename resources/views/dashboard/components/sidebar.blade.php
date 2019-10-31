@@ -19,6 +19,12 @@
     <span class="dashboard-sidebar-divider">Navegação</span>
     <ul class="dashboard-sidebar-items">
         <li class="dashboard-sidebar-item">
+            <a href="{{ route('dashboard') }}">
+                <i class="fas fa-home"></i>
+                Página Principal
+            </a>
+        </li>
+        <li class="dashboard-sidebar-item">
             <a href="{{ route('dashboard.album-do-mes') }}">
                 <i class="far fa-calendar-alt"></i>
                 Álbum do Mês
@@ -31,7 +37,7 @@
             </a>
         </li>
         <li class="dashboard-sidebar-item">
-            <a href="#!">
+            <a href="{{ route('dashboard.meus-pedidos') }}">
                 <i class="fas fa-history"></i>
                 Meus Pedidos
             </a>

@@ -517,6 +517,34 @@ input:-webkit-autofill {
   padding: 10px 30px !important;
   box-shadow: 3px 3px 0px #000000 !important;
 }
+.dashboard-content .templates {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+.dashboard-content .templates .template {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  height: 135px;
+}
+.dashboard-content .templates .template:not(:last-of-type) {
+  margin-right: 20px;
+}
+.dashboard-content .templates .template .template-description {
+  height: 20px;
+  color: white;
+  background-color: #717171;
+  border-radius: 4px 4px 0px 0px;
+}
+.dashboard-content .templates .template .template-description span {
+  padding: 5px;
+  font-size: 12px;
+}
+.dashboard-content .templates .template .template-image img {
+  width: 100%;
+  border-radius: 0px 0px 4px 4px;
+}
 
 /**
  * Sidebar
