@@ -13,7 +13,7 @@
 
     <p class="mt-5">O seu álbum do mês já está liberado</p>
 
-    <a href="{{ route('dashboard.album-do-mes') }}" class="btn btn-light btn-solicitar">
+    <a href="{{ route('dashboard.album-do-mes') }}" class="btn btn-light btn-request">
         Solicitar meu álbum
     </a>
     
