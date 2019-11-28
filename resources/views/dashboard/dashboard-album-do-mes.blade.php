@@ -71,6 +71,8 @@
 
     <h5 class="mt-5 mb-4">Importar Fotos</h5>
 
+    
+
     <a href="#!" class="btn btn-info" id="btn-solicitar">Solicitar Álbum</a>
 
 @endsection
