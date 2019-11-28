@@ -27,3 +27,9 @@ Auth::routes();
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 Route::get('/dashboard/album-do-mes', 'DashboardController@albumDoMes')->name('dashboard.album-do-mes');
 Route::get('/dashboard/meus-pedidos', 'DashboardController@meusPedidos')->name('dashboard.meus-pedidos');
+
+/**
+ * UPLOAD ROUTES
+ */
+Route::post('/ajax_remove_file', 'AlbumController@removeFile');
+Route::post('/ajax_upload_file', 'AlbumController@uploadFile')->name('photos.upload');

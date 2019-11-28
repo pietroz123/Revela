@@ -78,7 +78,7 @@
     <h5 class="mt-5 mb-4">Importar Fotos</h5>
 
     <div class="form-group">
-        <input type="file" name="files" id="album-photos-input" data-upload-url="" data-upload-token="{{ csrf_token() }}" data-project-id="">
+        <input type="file" name="files" id="album-photos-input" data-upload-url="{{ route('photos.upload') }}" data-upload-token="{{ csrf_token() }}" data-album-id="1">
     </div>
 
     <a href="#!" class="btn btn-info" id="btn-solicitar">Solicitar Álbum</a>
@@ -94,7 +94,7 @@
         var $fileuploader = $('input[name="files"]').fileuploader({
             limit: 100,
             fileMaxSize: 20,
-            extensions: ['image/*', 'video/*', 'audio/*'],
+            extensions: ['image/*'],
             changeInput: ' ',
             theme: 'gallery',
             enableApi: true,
@@ -191,13 +191,15 @@
                 container: '.fileuploader-theme-gallery .fileuploader-input'
             },
             upload: {
-                url: './php/ajax.php?type=upload',
-                data: null,
+                url: '/ajax_upload_file',
+                data: {
+                    album_id: $('#album-photos-input').attr('data-album-id'),
+                },
                 type: 'POST',
                 enctype: 'multipart/form-data',
                 start: true,
                 synchron: true,
-                beforeSend: function(item) {
+                beforeSend: function(item, listEl, parentEl, newInputEl, inputEl) {
                     // check the image size first (onImageLoaded)
                     if (item.format == 'image' && !item.reader.done)
                         return false;
@@ -211,6 +213,11 @@
                     }
 
                     item.html.find('.fileuploader-action-success').removeClass('fileuploader-action-success');
+
+                    item.upload.url = inputEl.attr('data-upload-url');
+                    item.upload.data._token = inputEl.attr('data-upload-token');
+                    console.log(item);
+                    
                 },
                 onSuccess: function(result, item) {
                     var data = {};
@@ -220,6 +227,9 @@
                     } catch (e) {
                         data.hasWarnings = true;
                     }
+
+                    console.log(data);
+                    
 
                     // if success update the information
                     if (data.isSuccess && data.files.length) {
@@ -278,66 +288,66 @@
                     item.html.find('.fileuploader-action-popup, .fileuploader-item-image').hide();
                 }
             },
-            editor: {
-                cropper: {
-                    showGrid: true,
-                    minWidth: 100,
-                    minHeight: 100
-                },
-                onSave: function(dataURL, item) {
-                    // if no editor
-                    if (!item.editor || !item.reader.width)
-                        return;
+            // editor: {
+            //     cropper: {
+            //         showGrid: true,
+            //         minWidth: 100,
+            //         minHeight: 100
+            //     },
+            //     onSave: function(dataURL, item) {
+            //         // if no editor
+            //         if (!item.editor || !item.reader.width)
+            //             return;
 
-                    // if uploaded
-                    // resend upload
-                    if (item.upload && item.upload.resend)
-                        item.upload.resend();
+            //         // if uploaded
+            //         // resend upload
+            //         if (item.upload && item.upload.resend)
+            //             item.upload.resend();
 
-                    // if preloaded
-                    // send request
-                    if (item.appended && item.data.listProps) {
-                        // hide current thumbnail
-                        item.imU = true;
-                        item.image.addClass('fileuploader-loading').find('img, canvas').hide();
-                        item.html.find('.fileuploader-action-popup').hide();
+            //         // if preloaded
+            //         // send request
+            //         if (item.appended && item.data.listProps) {
+            //             // hide current thumbnail
+            //             item.imU = true;
+            //             item.image.addClass('fileuploader-loading').find('img, canvas').hide();
+            //             item.html.find('.fileuploader-action-popup').hide();
 
-                        $.post('php/ajax.php?type=resize', {name: item.name, id: item.data.listProps.id, _editor: JSON.stringify(item.editor)}, function() {
-                            // update the image
-                            item.reader.read(function() {
-                                delete item.imU;
+            //             $.post('php/ajax.php?type=resize', {name: item.name, id: item.data.listProps.id, _editor: JSON.stringify(item.editor)}, function() {
+            //                 // update the image
+            //                 item.reader.read(function() {
+            //                     delete item.imU;
 
-                                item.image.removeClass('fileuploader-loading').find('img, canvas').show();
-                                item.html.find('.fileuploader-action-popup').show();
-                                item.editor.rotation = item.editor.crop = null;
-                                item.popup = {open: item.popup.open};
-                            }, null, true);
-                        });
-                    }
-                }	
-            },
-            sorter: {
-                onSort: function(list, listEl, parentEl, newInputEl, inputEl) {
-                    var api = $.fileuploader.getInstance(inputEl),
-                        fileList = api.getFiles(),
-                        list = [];
+            //                     item.image.removeClass('fileuploader-loading').find('img, canvas').show();
+            //                     item.html.find('.fileuploader-action-popup').show();
+            //                     item.editor.rotation = item.editor.crop = null;
+            //                     item.popup = {open: item.popup.open};
+            //                 }, null, true);
+            //             });
+            //         }
+            //     }	
+            // },
+            // sorter: {
+            //     onSort: function(list, listEl, parentEl, newInputEl, inputEl) {
+            //         var api = $.fileuploader.getInstance(inputEl),
+            //             fileList = api.getFiles(),
+            //             list = [];
 
-                    // prepare the sorted list
-                    api.getFiles().forEach(function(item) {
-                        if (item.data.listProps)
-                            list.push({
-                                name: item.name,
-                                id: item.data.listProps.id,
-                                index: item.index
-                            });
-                    });
+            //         // prepare the sorted list
+            //         api.getFiles().forEach(function(item) {
+            //             if (item.data.listProps)
+            //                 list.push({
+            //                     name: item.name,
+            //                     id: item.data.listProps.id,
+            //                     index: item.index
+            //                 });
+            //         });
 
-                    // send request
-                    $.post('php/ajax.php?type=sort', {
-                        list: JSON.stringify(list)
-                    });
-                }
-            },
+            //         // send request
+            //         $.post('php/ajax.php?type=sort', {
+            //             list: JSON.stringify(list)
+            //         });
+            //     }
+            // },
             afterRender: function(listEl, parentEl, newInputEl, inputEl) {
                 var api = $.fileuploader.getInstance(inputEl),
                     $plusInput = listEl.find('.fileuploader-input');
@@ -408,13 +418,24 @@
                     }
                 });
             },
-            onRemove: function(item) {
-                // send request
-                if (item.data.listProps)
-                    $.post('php/ajax.php?type=remove', {
-                        name: item.name,
-                        id: item.data.listProps.id
-                    });
+            onRemove: function(item, listEl, parentEl, newInputEl, inputEl) {
+                $.ajax({
+                    url: '/ajax_remove_file',
+                    method: 'POST',
+                    data: {
+                        album_id: $('#album-photos-input').attr('data-album-id'),
+                        _token: inputEl.attr('data-upload-token'),
+                        file: item.name,
+                    },
+                    success: function(retorno) {
+                        console.log('Success');
+                        console.log(retorno);
+                    },
+                    error: function(retorno) {
+                        console.log('Error');
+                        console.log(retorno);
+                    }
+                });
             },
             captions: {
                 feedback: 'Drag & Drop',
@@ -429,18 +450,18 @@
             }
         });
         
-        // preload the files
-        $.post('php/ajax.php?type=preload', null, function(result) {
-            var api = $.fileuploader.getInstance($fileuploader),
-                preload = [];
+        // // preload the files
+        // $.post('php/ajax.php?type=preload', null, function(result) {
+        //     var api = $.fileuploader.getInstance($fileuploader),
+        //         preload = [];
             
-            try {
-                // preload the files
-                preload = JSON.parse(result);
+        //     try {
+        //         // preload the files
+        //         preload = JSON.parse(result);
                 
-                api.append(preload);
-            } catch(e) {}
-        });
+        //         api.append(preload);
+        //     } catch(e) {}
+        // });
 
     </script>
 @endsection
