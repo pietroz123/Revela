@@ -10,7 +10,7 @@
 
     <h2>Álbum do Mês ({{ \Carbon\Carbon::now()->format('F') }} de {{ \Carbon\Carbon::now()->year }})</h2>   
 
-    <h5 class="mt-5">Selecionar Template</h5>
+    <h5 class="mt-5 mb-3">Selecionar Template</h5>
 
     <div class="templates">
 
@@ -53,8 +53,7 @@
     </div>
 
 
-
-    <h5 class="mt-4">Configurações do Álbum</h5>
+    <h5 class="mt-5 mb-4">Configurações do Álbum</h5>
 
     <div class="form-group row">
         <div class="col-md-4">
@@ -70,7 +69,7 @@
         </div>   
     </div>
 
-    <h5 class="mt-4">Importar Fotos</h5>
+    <h5 class="mt-5 mb-4">Importar Fotos</h5>
 
     <a href="#!" class="btn btn-info" id="btn-solicitar">Solicitar Álbum</a>
 
