@@ -15,7 +15,7 @@
         {{-- @if (count($pedidos) > 0) --}}
             <table class="table table-cadastro">
                 <thead>
-                    <tr>
+                    <tr class="header">
                         <th>Número do Pedido</th>
                         <th>Número do Álbum</th>
                         <th>Número de Fotos</th>
@@ -32,12 +32,12 @@
                             <td>5</td>
                             <td>21/11/2019</td>
                             <td>
-                                <span class="status-pedido">
+                                <span class="order-status">
                                     Finalizado
                                 </span>
                             </td>
-                            <td>
-                                <a href="#!" class="comprovante-pedido"><i class="fas fa-file-invoice"></i></a>
+                            <td class="td-actions">
+                                <button class="btn-action"><i class="far fa-file-pdf"></i></button>
                             </td>
                         </tr>
                     {{-- @endforeach --}}
