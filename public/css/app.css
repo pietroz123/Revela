@@ -341,6 +341,10 @@ input:-webkit-autofill {
   animation-fill-mode: both;
 }
 
+.fileuploader-input {
+  width: 100% !important;
+}
+
 #timeline .timeline-item:after, #timeline .timeline-item:before {
   content: "";
   display: block;
@@ -516,7 +520,8 @@ input:-webkit-autofill {
 }
 
 .dashboard-sidebar {
-  width: 400px;
+  position: fixed;
+  width: 300px;
   min-height: 100vh;
   background-color: #DB3D44;
   box-shadow: 3px 0px 4px 0px rgba(0, 0, 0, 0.4);
@@ -531,7 +536,8 @@ input:-webkit-autofill {
 }
 
 .dashboard-content {
-  width: 100%;
+  margin-left: 300px;
+  width: calc(100% - 300px);
   padding: 60px 75px;
 }
 
@@ -544,7 +550,7 @@ input:-webkit-autofill {
  * Sidebar
  */
 .dashboard-logo {
-  padding: 10px 20px 3px;
+  padding: 1rem;
 }
 .dashboard-logo a {
   color: inherit;
@@ -586,9 +592,14 @@ input:-webkit-autofill {
   position: absolute;
   z-index: -1;
   transition: all 0.3s;
+  opacity: 0.25;
 }
 .dashboard-sidebar-item a:hover::after {
   width: 100%;
+}
+.dashboard-sidebar-item a.active {
+  border-right: 4px solid #005f6b;
+  background: #ccccccc4;
 }
 
 /**
@@ -601,7 +612,7 @@ input:-webkit-autofill {
 .templates .template {
   display: flex;
   flex-direction: column;
-  width: 20%;
+  max-width: 250px;
 }
 .templates .template:not(:last-of-type) {
   margin-right: 20px;

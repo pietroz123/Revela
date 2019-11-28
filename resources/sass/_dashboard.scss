@@ -13,7 +13,8 @@
     font-size: 15px;
 }
 .dashboard-sidebar {
-    width: 400px;
+    position: fixed;
+    width: 300px;
     min-height: 100vh;
     @include sidebar-background();
     -webkit-box-shadow: 3px 0px 4px 0px rgba(0,0,0,0.4);
@@ -31,10 +32,9 @@
     }
 }
 .dashboard-content {
-    width: 100%;
+    margin-left: 300px;
+    width: calc(100% - 300px);
     padding: 60px 75px;
-
-    
 }
 
 .btn-request {
@@ -47,7 +47,7 @@
  */
 
 .dashboard-logo {
-    padding: 10px 20px 3px;
+    padding: 1rem;
     a {
         color: inherit;
     }
@@ -88,11 +88,16 @@
             -webkit-transition: all 0.3s;
             -moz-transition: all 0.3s;
             transition: all 0.3s;
+            opacity: 0.25;
         }
         &:hover {
             &::after {
                 width: 100%;
             }   
+        }
+        &.active {
+            border-right: 4px solid #005f6b;
+            background: #ccccccc4;
         }
     }
 }
@@ -112,7 +117,7 @@
     .template {
         display: flex;
         flex-direction: column;
-        width: 20%;
+        max-width: 250px;
        
         &:not(:last-of-type) {
             margin-right: 20px;
