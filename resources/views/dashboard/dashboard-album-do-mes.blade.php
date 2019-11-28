@@ -374,30 +374,47 @@
                         var x = prompt(api.getOptions().captions.rename, item.title);
 
                         if (x && item.data.listProps) {
-                            $.post('php/ajax.php?type=rename', {name: item.name, id: item.data.listProps.id, title: x}, function(result) {
-                                try {
-                                    var j = JSON.parse(result);
+                            $.ajax({
+                                url: '/ajax_rename_file',
+                                method: 'POST',
+                                data: {
+                                    _token: inputEl.attr('data-upload-token'),
+                                    album_id: $('#album-photos-input').attr('data-album-id'),
+                                    name: item.name, 
+                                    title: x
+                                },
+                                success: function(result) {
+                                    console.log('Success');
+                                    console.log(result);
 
-                                    // update the file name and url
-                                    if (j.title) {
-                                        item.title = j.title;
-                                        item.name = item.title + (item.extension.length ? '.' + item.extension : '');
-                                        $item.find('.content-holder h5').attr('title', item.name).html(item.name);
-                                        $item.find('.gallery-item-dropdown [download]').attr('href', item.data.url);
+                                    try {
+                                        var j = JSON.parse(result);
 
-                                        if (item.popup.html)
-                                            item.popup.html.find('h5:eq(0)').text(item.name);
+                                        // update the file name and url
+                                        if (j.title) {
+                                            item.title = j.title;
+                                            item.name = item.title + (item.extension.length ? '.' + item.extension : '');
+                                            $item.find('.content-holder h5').attr('title', item.name).html(item.name);
+                                            $item.find('.gallery-item-dropdown [download]').attr('href', item.data.url);
 
-                                        if (j.url)
-                                            item.data.url = j.url;
-                                        if (item.appended && j.file)
-                                            item.file = j.file;
+                                            if (item.popup.html)
+                                                item.popup.html.find('h5:eq(0)').text(item.name);
 
-                                        api.updateFileList();
+                                            if (j.url)
+                                                item.data.url = j.url;
+                                            if (item.appended && j.file)
+                                                item.file = j.file;
+
+                                            api.updateFileList();
+                                        }
+
+                                    } catch(e) {
+                                        alert(api.getOptions().captions.renameError);
                                     }
-
-                                } catch(e) {
-                                    alert(api.getOptions().captions.renameError);
+                                },
+                                error: function(result) {
+                                    console.log('Error');
+                                    console.log(result);
                                 }
                             });
                         }

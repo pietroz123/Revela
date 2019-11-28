@@ -32,4 +32,5 @@ Route::get('/dashboard/meus-pedidos', 'DashboardController@meusPedidos')->name('
  * UPLOAD ROUTES
  */
 Route::post('/ajax_remove_file', 'AlbumController@removeFile');
+Route::post('/ajax_rename_file', 'AlbumController@renameFile');
 Route::post('/ajax_upload_file', 'AlbumController@uploadFile')->name('photos.upload');
