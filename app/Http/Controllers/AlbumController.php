@@ -93,7 +93,7 @@ class AlbumController extends Controller
 
 		if ( request()->has('file') ) {
 
-			$uploadDir = 'projects/' . request('album_id') . '/';
+			$uploadDir = 'albums/' . request('album_id') . '/';
             $file = storage_path('app/public/') . $uploadDir . str_replace(array('/', '\\'), '', request('file'));
             echo $file;
 
@@ -110,7 +110,7 @@ class AlbumController extends Controller
 	 */
 	public function uploadFile(Request $request) {
 
-		$path = storage_path('app/public/') . 'projects/' . request('album_id') . '/';
+		$path = storage_path('app/public/') . 'albums/' . request('album_id') . '/';
 
         // Verify if there is a folder for the album, if not creates one
         if (!File::isDirectory($path)) {
