@@ -107,11 +107,9 @@
                 item: '<li class="fileuploader-item">' +
                         '<div class="fileuploader-item-inner">' +
                             '<div class="actions-holder">' +
-                                '<button type="button" class="fileuploader-action fileuploader-action-sort is-hidden" title="${captions.sort}"><i class="fileuploader-icon-sort"></i></button>' +
                                 '<button type="button" class="fileuploader-action fileuploader-action-settings is-hidden" title="${captions.edit}"><i class="fileuploader-icon-settings"></i></button>' +
                                 '<button type="button" class="fileuploader-action fileuploader-action-remove" title="${captions.remove}"><i class="fileuploader-icon-remove"></i></button>' +
                                 '<div class="gallery-item-dropdown">' +
-                                    '<a class="fileuploader-action-popup">${captions.setting_edit}</a>' +
                                     '<a class="gallery-action-rename">${captions.setting_rename}</a>' +
                                     '<a class="gallery-action-asmain">${captions.setting_asMain}</a>' +
                                 '</div>' +
@@ -288,66 +286,6 @@
                     item.html.find('.fileuploader-action-popup, .fileuploader-item-image').hide();
                 }
             },
-            // editor: {
-            //     cropper: {
-            //         showGrid: true,
-            //         minWidth: 100,
-            //         minHeight: 100
-            //     },
-            //     onSave: function(dataURL, item) {
-            //         // if no editor
-            //         if (!item.editor || !item.reader.width)
-            //             return;
-
-            //         // if uploaded
-            //         // resend upload
-            //         if (item.upload && item.upload.resend)
-            //             item.upload.resend();
-
-            //         // if preloaded
-            //         // send request
-            //         if (item.appended && item.data.listProps) {
-            //             // hide current thumbnail
-            //             item.imU = true;
-            //             item.image.addClass('fileuploader-loading').find('img, canvas').hide();
-            //             item.html.find('.fileuploader-action-popup').hide();
-
-            //             $.post('php/ajax.php?type=resize', {name: item.name, id: item.data.listProps.id, _editor: JSON.stringify(item.editor)}, function() {
-            //                 // update the image
-            //                 item.reader.read(function() {
-            //                     delete item.imU;
-
-            //                     item.image.removeClass('fileuploader-loading').find('img, canvas').show();
-            //                     item.html.find('.fileuploader-action-popup').show();
-            //                     item.editor.rotation = item.editor.crop = null;
-            //                     item.popup = {open: item.popup.open};
-            //                 }, null, true);
-            //             });
-            //         }
-            //     }	
-            // },
-            // sorter: {
-            //     onSort: function(list, listEl, parentEl, newInputEl, inputEl) {
-            //         var api = $.fileuploader.getInstance(inputEl),
-            //             fileList = api.getFiles(),
-            //             list = [];
-
-            //         // prepare the sorted list
-            //         api.getFiles().forEach(function(item) {
-            //             if (item.data.listProps)
-            //                 list.push({
-            //                     name: item.name,
-            //                     id: item.data.listProps.id,
-            //                     index: item.index
-            //                 });
-            //         });
-
-            //         // send request
-            //         $.post('php/ajax.php?type=sort', {
-            //             list: JSON.stringify(list)
-            //         });
-            //     }
-            // },
             afterRender: function(listEl, parentEl, newInputEl, inputEl) {
                 var api = $.fileuploader.getInstance(inputEl),
                     $plusInput = listEl.find('.fileuploader-input');
@@ -466,19 +404,6 @@
                 imageSizeError: 'The image ${name} is too small.',
             }
         });
-        
-        // // preload the files
-        // $.post('php/ajax.php?type=preload', null, function(result) {
-        //     var api = $.fileuploader.getInstance($fileuploader),
-        //         preload = [];
-            
-        //     try {
-        //         // preload the files
-        //         preload = JSON.parse(result);
-                
-        //         api.append(preload);
-        //     } catch(e) {}
-        // });
 
     </script>
 @endsection
