@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Plan;
 
 class DashboardController extends Controller
 {
@@ -38,6 +39,10 @@ class DashboardController extends Controller
 
     public function dadosCadastrais()
     {
-        return view('dashboard.dashboard-dados-cadastrais');
+        $plans = Plan::all();
+
+        return view('dashboard.dashboard-dados-cadastrais', [
+            'plans' => $plans,
+        ]);
     }
 }

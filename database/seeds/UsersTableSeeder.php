@@ -18,6 +18,7 @@ class UsersTableSeeder extends Seeder
         User::create([
             'name' => 'Adriana Alana Figueiredo',
             'email' => 'dri@gmail.com',
+            'cpf' => '452.245.854-89',
             'birthday' => '1995-12-18',
             'cellphone' => '(15) 99113-9586',
             'phone' => '(15) 3505-9959',

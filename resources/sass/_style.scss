@@ -344,3 +344,27 @@ $g: linear-gradient(116.7deg, rgba(37, 130, 196, 0.65) 0%, rgba(37, 130, 196, 0)
     padding: 4px 8px;
     border-radius: 3px;
 }
+
+// =======================================================
+// DADOS CADASTRAIS
+// =======================================================
+
+#profile-picture-container {
+    .fileuploader {
+        width: 160px;
+        height: 160px;
+        margin: 15px;
+    }
+}
+
+.current-plan {
+    background-color: $main-color-v2;
+    padding: 5px 10px;
+    text-align: center;
+    color:white;
+    font-weight: 600;
+    border-radius: 5px;
+    &::selection { background: transparent; }
+    &::-moz-selection { background: transparent; }
+    cursor: default;
+}

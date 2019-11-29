@@ -6,13 +6,6 @@
     <link href="{{ asset('lib/fileuploader/dist/font/font-fileuploader.css') }}" rel="stylesheet">
     <link href="{{ asset('lib/fileuploader/dist/jquery.fileuploader.min.css') }}" rel="stylesheet">
     <link href="{{ asset('lib/fileuploader/dist/jquery.fileuploader-theme-avatar.css') }}" rel="stylesheet">
-    <style>
-        .fileuploader {
-            width: 160px;
-            height: 160px;
-            margin: 15px;
-        }
-    </style>
 @endsection
 
 @section('dashboard-sidebar')
@@ -23,7 +16,7 @@
     
     <div class="container">
         <div class="row">
-            <div class="col-3">
+            <div class="col-3" id="profile-picture-container">
                 {{-- Profile Picture --}}
                 @php
                     $enabled = true;
@@ -58,11 +51,11 @@
                     <div class="tab-pane fade show active" id="meus-dados" role="tabpanel" aria-labelledby="meus-dados-tab">
                         <div class="form-group mt-5">
                             <label for="name">Nome</label>
-                            <input type="text" id="name" class="form-control" placeholder="Nome">
+                            <input type="text" id="name" class="form-control" placeholder="Nome" value="{{ Auth::user()->name }}" readonly>
                         </div>
                         <div class="form-group">
                             <label for="email">E-mail</label>
-                            <input type="text" id="email" class="form-control" placeholder="E-mail">
+                            <input type="text" id="email" class="form-control" placeholder="E-mail" value="{{ Auth::user()->email }}" readonly>
                         </div>
                         <div class="form-group">
                             <label for="cpf">CPF</label>
@@ -119,33 +112,32 @@
 
                     </div>
                     <div class="tab-pane fade" id="meu-plano" role="tabpanel" aria-labelledby="meu-plano-tab">
-                        <h5 class="mt-5">Planos Disponíveis</h5>
-                        <table class="table table-cadastro">
-                                <thead>
-                                    <tr class="header">
-                                        <th>Plano</th>
-                                        <th>Número de Fotos</th>
-                                        <th>Preço</th>
-                                        <th>Validade</th>
-                                        <th></th>
+                        <table class="table table-cadastro mt-5">
+                            <thead>
+                                <tr class="header">
+                                    <th>Plano</th>
+                                    <th>Número de Fotos</th>
+                                    <th>Preço</th>
+                                    {{-- <th>Validade</th> --}}
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody> 
+                                @foreach ($plans as $plan)
+                                    <tr>
+                                        <td>{{ $plan->name }}</td>
+                                        <td>{{ $plan->number_of_photos }}</td>
+                                        <td>R${{ $plan->price }}</td>
+                                        {{-- <td>21/11/2019</td> --}}
+                                        <td>
+                                            <span class="current-plan">
+                                                Plano Atual
+                                            </span>
+                                        </td>
                                     </tr>
-                                </thead>
-                                <tbody> 
-                                    {{-- @foreach ($pedidos as $pedido) --}}
-                                        <tr>
-                                            <td>Iniciante</td>
-                                            <td>5</td>
-                                            <td>R$29,90</td>
-                                            <td>21/11/2019</td>
-                                            <td>
-                                                <span class="order-status">
-                                                    Plano Atual
-                                                </span>
-                                            </td>
-                                        </tr>
-                                    {{-- @endforeach --}}
-                                </tbody>
-                            </table>
+                                @endforeach
+                            </tbody>
+                        </table>
                     </div>
                 </div>
                 

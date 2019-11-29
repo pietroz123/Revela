@@ -323,6 +323,31 @@
   border-radius: 3px;
 }
 
+#profile-picture-container .fileuploader {
+  width: 160px;
+  height: 160px;
+  margin: 15px;
+}
+
+.current-plan {
+  background-color: #ee4d4d;
+  padding: 5px 10px;
+  text-align: center;
+  color: white;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: default;
+}
+.current-plan::-moz-selection {
+  background: transparent;
+}
+.current-plan::selection {
+  background: transparent;
+}
+.current-plan::-moz-selection {
+  background: transparent;
+}
+
 .btn {
   font-size: 1rem;
   text-transform: none;
