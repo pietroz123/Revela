@@ -11,10 +11,11 @@
 
     <h2>Bem vindo(a) de volta, {{ explode(' ', Auth::user()->name)[0] }}</h2>
 
-    <h5 class="mt-5">O seu álbum do mês já está liberado</h5>
+    <h5 class="mt-5">O seu álbum do mês já está liberado! 😍</h5>
 
-    <a href="{{ route('dashboard.album-do-mes') }}" class="btn btn-light btn-request mt-2">
-        Solicitar meu álbum
+    <a class="cta-home mt-2" href="{{ route('dashboard.album-do-mes') }}">
+        <span class="content text-uppercase">Solicitar meu álbum</span>
+        <span class="icon"><i class="fa fa-arrow-right" aria-hidden="true"></i></span>
     </a>
     
 @endsection
