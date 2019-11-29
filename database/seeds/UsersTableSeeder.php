@@ -16,7 +16,7 @@ class UsersTableSeeder extends Seeder
         User::truncate();
 
         User::create([
-            'name' => 'Adriana Alana Fernanda Figueiredo',
+            'name' => 'Adriana Alana Figueiredo',
             'email' => 'dri@gmail.com',
             'birthday' => '1995-12-18',
             'cellphone' => '(15) 99113-9586',

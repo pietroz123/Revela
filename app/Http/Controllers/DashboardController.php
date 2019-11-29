@@ -35,4 +35,9 @@ class DashboardController extends Controller
     {
         return view('dashboard.dashboard-meus-pedidos');
     }
+
+    public function dadosCadastrais()
+    {
+        return view('dashboard.dashboard-dados-cadastrais');
+    }
 }

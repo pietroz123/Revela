@@ -53,7 +53,7 @@
     <span class="dashboard-sidebar-divider">Dados Gerais</span>
     <ul class="dashboard-sidebar-items">
         <li class="dashboard-sidebar-item">
-            <a href="#!">
+            <a href="{{ route('dashboard.dados-cadastrais') }}">
                 <i class="far fa-address-card"></i>
                 Dados Cadastrais
             </a>
