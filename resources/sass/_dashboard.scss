@@ -23,8 +23,8 @@
     color: white;
 
     .user-image {
-        width: 70px;
-        background-color: white;
+        width: 60px;
+        background-color: transparent;
     }
 
     hr {
@@ -48,8 +48,14 @@
 
 .dashboard-logo {
     padding: 1rem;
+    font-family: $font-exo;
+    background-color: #27272775;
     a {
         color: inherit;
+        &:hover {
+            color: white !important;
+            opacity: 0.8;
+        }
     }
 }
 .dashboard-sidebar-divider {

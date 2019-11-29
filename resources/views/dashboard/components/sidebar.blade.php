@@ -1,14 +1,14 @@
-{{-- <div class="dashboard-logo">
+<div class="dashboard-logo">
     <a class="navbar-brand" href="/">
         <img src="{{ asset('img/icons/logo.svg') }}" class="main-icon" alt="Ícone principal da página">
         <span class="brand">revela</span>
     </a>
-</div> --}}
+</div>
 
-{{-- <hr> --}}
+<hr>
 
-<div class="d-flex flex-column justify-content-center align-items-center px-3 pb-0 pt-3">
-    <img src="https://image.flaticon.com/icons/svg/145/145867.svg" class="rounded-circle user-image mb-2" alt="">
+<div class="d-flex flex-column justify-content-center align-items-center px-3 py-2">
+    <img src="https://image.flaticon.com/icons/svg/149/149071.svg" class="rounded-circle user-image mb-2" alt="">
     <p>{{ Auth::user()->name }}</p>
 </div>
 
