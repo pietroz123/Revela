@@ -17,10 +17,23 @@ class CreateUsersTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('email')->unique();
+            $table->date('birthday');
+            $table->string('cellphone', 15);
+            $table->string('phone', 14)->nullable();
+            $table->bigInteger('city_id')->unsigned();
+            $table->string('zip_code', 9);
+            $table->string('neighborhood');
+            $table->string('street');
+            $table->integer('street_number');
+            $table->string('street_complement')->nullable();
+            $table->boolean('allow_notifications');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+        });
+        Schema::table('users', function (Blueprint $table) {
+            $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

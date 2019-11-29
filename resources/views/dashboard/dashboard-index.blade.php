@@ -9,11 +9,11 @@
 
 @section('dashboard-content')
 
-    <h2>Bem Vindo de Volta, {{ Auth::user()->name }}</h2>
+    <h2>Bem vindo(a) de volta, {{ explode(' ', Auth::user()->name)[0] }}</h2>
 
-    <p class="mt-5">O seu álbum do mês já está liberado</p>
+    <h5 class="mt-5">O seu álbum do mês já está liberado</h5>
 
-    <a href="{{ route('dashboard.album-do-mes') }}" class="btn btn-light btn-request">
+    <a href="{{ route('dashboard.album-do-mes') }}" class="btn btn-light btn-request mt-2">
         Solicitar meu álbum
     </a>
     
