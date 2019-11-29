@@ -31,28 +31,37 @@
 
         <div class="template">
             <div class="template-description">
-                    <span>Halloween</span>
+                    <span>Férias com amigos</span>
                 </div>
                 <div class="template-image">
-                    <img src="{{ asset('img/templates/halloween.png') }}" alt="Template de Halloween">
+                    <img src="{{ asset('img/templates/ferias-amigos.jpg') }}" alt="Template de Férias com amigos">
             </div>
         </div>
 
         <div class="template">
             <div class="template-description">
-                    <span>Halloween</span>
+                    <span>Férias com família</span>
                 </div>
                 <div class="template-image">
-                    <img src="{{ asset('img/templates/halloween.png') }}" alt="Template de Halloween">
+                    <img src="{{ asset('img/templates/ferias-familia.jpg') }}" alt="Template de Férias com família">
             </div>
         </div>
 
         <div class="template">
             <div class="template-description">
-                    <span>Halloween</span>
+                    <span>Clássico</span>
                 </div>
                 <div class="template-image">
-                    <img src="{{ asset('img/templates/halloween.png') }}" alt="Template de Halloween">
+                    <img src="{{ asset('img/templates/classico.png') }}" alt="Template de Clássico">
+            </div>
+        </div>
+
+        <div class="template">
+            <div class="template-description">
+                    <span>Dia-a-Dia</span>
+                </div>
+                <div class="template-image">
+                    <img src="{{ asset('img/templates/dia-a-dia.jpg') }}" alt="Template de Dia-a-Dia">
             </div>
         </div>
 
@@ -62,14 +71,14 @@
     <h5 class="mt-5 mb-4">Configurações do Álbum</h5>
 
     <div class="form-group row">
-        <div class="col-md-4">
+        <div class="col-5">
             <label for="album-name">Nome do Álbum</label>
             <input class="form-control" name="album-name" id="album-name" type="text" placeholder="Nome do álbum">
         </div>
     </div>
 
     <div class="form-group row">
-        <div class="col-md-4">
+        <div class="col-5">
             <label for="album-description">Descrição Especial (Opcional)</label>
             <textarea class="form-control" id="album-description" rows="3" placeholder="Descrição"></textarea>
         </div>   
