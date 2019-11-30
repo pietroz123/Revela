@@ -59,7 +59,7 @@
                         </div>
                         <div class="form-group">
                             <label for="cpf">CPF</label>
-                            <input type="text" id="cpf" class="form-control" placeholder="999.999.999-99">
+                            <input type="text" id="cpf" class="form-control" placeholder="999.999.999-99" value="{{ Auth::user()->cpf }}" readonly>
                         </div>
 
                     </div>
@@ -69,7 +69,7 @@
                             <div class="col">
                                 <div class="form-group">
                                     <label for="cep">CEP</label>
-                                    <input type="text" id="cep" class="form-control" placeholder="99999-999">
+                                    <input type="text" id="cep" class="form-control" placeholder="99999-999" value="{{ Auth::user()->zip_code }}" readonly>
                                 </div>
                             </div>
                             <div class="col">
@@ -87,27 +87,27 @@
             
                         <div class="form-group">
                             <label for="bairro">Bairro</label>
-                            <input type="text" class="form-control" id="bairro" placeholder="Bairro" name="bairro" autocomplete="new" required">
+                            <input type="text" class="form-control" id="bairro" placeholder="Bairro" name="bairro" autocomplete="new" value="{{ Auth::user()->neighborhood }}" readonly>
                         </div>
             
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
                                     <label for="rua">Rua</label>
-                                    <input type="text" class="form-control" id="rua" placeholder="Rua" name="rua" autocomplete="new" required>
+                                    <input type="text" class="form-control" id="rua" placeholder="Rua" name="rua" autocomplete="new" value="{{ Auth::user()->street }}" readonly>
                                 </div>
                             </div>
                             <div class="col-5">
                                 <div class="form-group">
                                     <label for="numero-rua">Número</label>
-                                    <input type="text" class="form-control" id="numero-rua" placeholder="Nº" name="numero-rua" autocomplete="new" required >
+                                    <input type="text" class="form-control" id="numero-rua" placeholder="Nº" name="numero-rua" autocomplete="new" value="{{ Auth::user()->street_number }}" readonly >
                                 </div>
                             </div>
                         </div>
                         
                         <div class="form-group">
                             <label for="complemento">Complemento</label>
-                            <input type="text" class="form-control" id="complemento" placeholder="Complemento" name="complemento" autocomplete="new">
+                            <input type="text" class="form-control" id="complemento" placeholder="Complemento" name="complemento" autocomplete="new" value="{{ Auth::user()->street_complement }}" readonly>
                         </div>
 
                     </div>
@@ -118,7 +118,7 @@
                                     <th>Plano</th>
                                     <th>Número de Fotos</th>
                                     <th>Preço</th>
-                                    {{-- <th>Validade</th> --}}
+                                    <th>Validade</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -128,11 +128,17 @@
                                         <td>{{ $plan->name }}</td>
                                         <td>{{ $plan->number_of_photos }}</td>
                                         <td>R${{ $plan->price }}</td>
-                                        {{-- <td>21/11/2019</td> --}}
                                         <td>
-                                            <span class="current-plan">
-                                                Plano Atual
-                                            </span>
+                                            @if ($plan->name == Auth::user()->subscription->plan->name)
+                                                {{ date('d/m/Y H:i', strtotime(Auth::user()->subscription->subscription_end)) }}
+                                            @endif
+                                        </td>
+                                        <td>
+                                            @if ($plan->name == Auth::user()->subscription->plan->name)
+                                                <span class="current-plan">
+                                                    Plano Atual
+                                                </span>
+                                            @endif
                                         </td>
                                     </tr>
                                 @endforeach

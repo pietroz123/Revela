@@ -22,11 +22,6 @@
     box-shadow: 3px 0px 4px 0px rgba(0,0,0,0.4);
     color: white;
 
-    .user-image {
-        width: 60px;
-        background-color: transparent;
-    }
-
     hr {
         margin-top: 0;
     }
@@ -104,6 +99,26 @@
         &.active {
             border-right: 4px solid #005f6b;
             background: #ccccccc4;
+        }
+    }
+}
+.user-info {
+    .user-image {
+        width: 60px;
+        background-color: transparent;
+    }
+    p {
+        margin: 0;
+        &.subscription-plan {
+            margin-top: 0.5rem;
+            background-color: #27272775;
+            padding: 0.25rem;
+            width: 50%;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 13px;
+            font-family: $font-exo;
+            border-radius: 4px;
         }
     }
 }

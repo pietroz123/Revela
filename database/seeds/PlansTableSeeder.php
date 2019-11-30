@@ -27,7 +27,7 @@ class PlansTableSeeder extends Seeder
             'number_of_months' => '3',
         ]);
         Plan::create([
-            'name' => 'Iniciante',
+            'name' => 'Nostalgia',
             'price' => '18.90',
             'number_of_photos' => '15',
             'number_of_months' => '6',
