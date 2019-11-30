@@ -1,4 +1,5 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css?family=Lato:400,400i&display=swap);@import url(https://fonts.googleapis.com/css?family=Oswald:300,400,500&display=swap);@import url(https://fonts.googleapis.com/css?family=Rajdhani:500,600);@import url(https://fonts.googleapis.com/css?family=Bitter&display=swap);@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=swap);@import url(https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap);@import url(https://fonts.googleapis.com/css?family=Lora&display=swap);@import url(https://fonts.googleapis.com/css?family=Montserrat:400,500,600&display=swap);@import url(https://fonts.googleapis.com/css?family=Asap:400,500,600&display=swap);@import url(https://fonts.googleapis.com/css?family=Exo:400,500,600&display=swap);@import url(https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700&display=swap);body {
+@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css?family=Lato:400,400i&display=swap);@import url(https://fonts.googleapis.com/css?family=Oswald:300,400,500&display=swap);@import url(https://fonts.googleapis.com/css?family=Rajdhani:500,600);@import url(https://fonts.googleapis.com/css?family=Bitter&display=swap);@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=swap);@import url(https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap);@import url(https://fonts.googleapis.com/css?family=Lora&display=swap);@import url(https://fonts.googleapis.com/css?family=Montserrat:400,500,600&display=swap);@import url(https://fonts.googleapis.com/css?family=Asap:400,500,600&display=swap);@import url(https://fonts.googleapis.com/css?family=Exo:400,500,600&display=swap);@import url(https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700&display=swap);@charset "UTF-8";
+body {
   font-family: "Nunito", sans-serif !important;
   font-family: "Lato", sans-serif !important;
   font-family: "Oswald", sans-serif !important;
@@ -125,6 +126,26 @@
   outline: none !important;
   transition: box-shadow 0.2s ease !important;
   background-color: #DB3D44;
+}
+
+.btn-tool {
+  font-family: "Exo", sans-serif;
+  font-size: 13px !important;
+  text-transform: uppercase !important;
+}
+.btn-tool.add::after {
+  content: "\F067";
+}
+.btn-tool.edit::after {
+  content: "\F303";
+}
+.btn-tool::after {
+  float: right;
+  font-family: "Font Awesome 5 Pro";
+  font-weight: 900;
+  margin-left: 10px;
+  font-size: 12px;
+  padding-top: 1px;
 }
 
 .navbar-brand img {

@@ -15,14 +15,14 @@
 @section('dashboard-content')
     
     <div class="container">
-        <div class="d-flex flex-column align-items-center">
-            <div class="" id="profile-picture-container">
-                {{-- Profile Picture --}}
+        <div class="d-flex flex-column align-items-start">
+            <div class="w-100" id="profile-picture-container">
                 @php
                     $enabled = true;
                     $default_avatar = "https://image.flaticon.com/icons/svg/149/149071.svg";
-                @endphp
+                    @endphp
                 <div class="d-flex align-items-center">
+                    {{-- Profile Picture --}}
                     <input 
                         type="file" 
                         name="files" 
@@ -32,12 +32,15 @@
                         data-upload-token="{{ csrf_token() }}"
                         data-user-id="{{ Auth::user()->id }}"
                     >
+                    {{-- END Profile Picture --}}
                     <div class="ml-4">
                         <h5>{{ Auth::user()->name }}</h5>
                         <h6 class="badge-dark">{{ Auth::user()->subscription->plan->name }}</h6>
                     </div>
                 </div>
-                {{-- END Profile Picture --}}
+                <div class="mt-3">
+                    <button class="btn bg-stylish-grey white-text btn-tool edit">Editar cadastro</button>
+                </div>
             </div>
             
             <hr class="w-100 mt-4 mb-0">

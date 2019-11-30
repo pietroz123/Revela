@@ -129,6 +129,25 @@ body {
     }
 }
 
+.btn-tool {
+    font-family: $font-exo;
+    font-size: 13px !important;
+    text-transform: uppercase !important;
+    &.add {
+        &::after { content: "\f067"; }
+    }
+    &.edit {
+        &::after { content: "\f303"; }
+    }
+    &::after {
+        float: right;
+        font-family: "Font Awesome 5 Pro"; font-weight: 900;
+        margin-left: 10px;
+        font-size: 12px;
+        padding-top: 1px;
+    }
+}
+
 
 // =======================================================
 // NAVBAR
