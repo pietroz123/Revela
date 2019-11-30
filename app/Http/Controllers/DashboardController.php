@@ -93,4 +93,9 @@ class DashboardController extends Controller
             'cities' => $cities,
         ]);
     }
+
+    public function editarDadosCadastrais()
+    {
+        return view('dashboard.dashboard-editar-dados-cadastrais');
+    }
 }

@@ -43,7 +43,7 @@
                     </div>
                 </div>
                 <div class="mt-3">
-                    <button class="btn bg-stylish-grey white-text btn-tool edit">Editar cadastro</button>
+                    <a href="{{ route('dashboard.editar-dados-cadastrais') }}" class="btn bg-stylish-grey white-text btn-tool edit">Editar cadastro</a>
                 </div>
             </div>
             

@@ -14,7 +14,7 @@
 
 @section('dashboard-content')
 
-    <h2>Álbum do Mês ({{ \Carbon\Carbon::now()->format('F') }} de {{ \Carbon\Carbon::now()->year }})</h2>   
+    <h2>Álbum do Mês (<span class="text-capitalize">{{ \Carbon\Carbon::now()->formatLocalized("%B") }}</span> de {{ \Carbon\Carbon::now()->year }})</h2>   
 
     <form method="POST" action="{{ route('albums.store') }}">
         @csrf
