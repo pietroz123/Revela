@@ -35,7 +35,11 @@
                     {{-- END Profile Picture --}}
                     <div class="ml-4">
                         <h5>{{ Auth::user()->name }}</h5>
-                        <h6 class="badge-dark">{{ Auth::user()->subscription->plan->name }}</h6>
+                        <h6 class="badge-dark">
+                            @if (Auth::user()->subscription)
+                                {{ Auth::user()->subscription->plan->name }}
+                            @endif    
+                        </h6>
                     </div>
                 </div>
                 <div class="mt-3">
@@ -161,12 +165,12 @@
                                         <td>{{ $plan->number_of_photos }}</td>
                                         <td>R${{ $plan->price }}</td>
                                         <td>
-                                            @if ($plan->name == Auth::user()->subscription->plan->name)
+                                            @if (Auth::user()->subscription and $plan->name == Auth::user()->subscription->plan->name)
                                                 {{ date('d/m/Y H:i', strtotime(Auth::user()->subscription->subscription_end)) }}
                                             @endif
                                         </td>
                                         <td>
-                                            @if ($plan->name == Auth::user()->subscription->plan->name)
+                                            @if (Auth::user()->subscription and $plan->name == Auth::user()->subscription->plan->name)
                                                 <span class="current-plan">
                                                     Plano Atual
                                                 </span>

@@ -15,7 +15,9 @@
     @endif
     <p>{{ Auth::user()->name }}</p>
     <p class="subscription-plan mb-2">
-        {{ Auth::user()->subscription->plan->name }}
+        @if (Auth::user()->subscription)
+            {{ Auth::user()->subscription->plan->name }}
+        @endif
     </p>
 </div>
 
