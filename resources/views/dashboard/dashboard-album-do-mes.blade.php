@@ -86,7 +86,9 @@
 
     <h5 class="mt-5 mb-4">Importar Fotos</h5>
     <h6>
-        <span class="n-photos-selected">0</span>
+        <span class="n-photos-selected">
+            {{ count($files) }}
+        </span>
         /
         <span class="n-photos-max">{{ Auth::user()->subscription->plan->number_of_photos }}</span> 
         fotos selecionadas
@@ -108,6 +110,7 @@
          */
         var $fileuploader = $('input[name="files"]').fileuploader({
             limit: 100,
+            files: @json($files),
             fileMaxSize: 20,
             extensions: ['image/*'],
             changeInput: ' ',
@@ -141,7 +144,6 @@
                 item2: '<li class="fileuploader-item file-main-${data.isMain}">' +
                         '<div class="fileuploader-item-inner">' +
                             '<div class="actions-holder">' +
-                                '<button type="button" class="fileuploader-action fileuploader-action-sort" title="${captions.sort}"><i class="fileuploader-icon-sort"></i></button>' +
                                 '<button type="button" class="fileuploader-action fileuploader-action-settings" title="${captions.edit}"><i class="fileuploader-icon-settings"></i></button>' +
                                 '<button type="button" class="fileuploader-action fileuploader-action-remove" title="${captions.remove}"><i class="fileuploader-icon-remove"></i></button>' +
                                 '<div class="gallery-item-dropdown">' +

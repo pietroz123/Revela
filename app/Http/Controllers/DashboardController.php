@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use \FileUploader;
+use Illuminate\Support\Facades\File;
 use App\Plan;
 use App\City;
 
@@ -31,7 +32,31 @@ class DashboardController extends Controller
 
     public function albumDoMes()
     {
-        return view('dashboard.dashboard-album-do-mes');
+        /**
+         * Get album photos
+         */
+        $path = storage_path('app/public/') . 'albums/' . auth()->user()->id . '/' . date('n') . '/';
+
+        // Verify if there is a folder for the project, if not creates one
+        if (!File::isDirectory($path)) {
+            File::makeDirectory($path, 0777, true, true);
+        }
+
+        // Get files from folder
+        $filesInFolder = File::files(storage_path('app/public/albums/') . auth()->user()->id . '/' . date('n'));
+        $files = array();
+        foreach ($filesInFolder as $file) {
+            array_push($files, [
+                'name' => $file->getFilename(),
+                'size' => $file->getSize(),
+                'type' => File::mimeType($file->getPathname()),
+                'file' => '/storage/albums/' . auth()->user()->id . '/' . date('n') . '/' . $file->getFilename(),
+            ]);
+        }
+
+        return view('dashboard.dashboard-album-do-mes', [
+            'files' => $files,
+        ]);
     }
 
     public function meusPedidos()
