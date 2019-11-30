@@ -40,7 +40,7 @@
             </a>
         </li>
         <li class="dashboard-sidebar-item">
-            <a href="#!">
+            <a href="{{ route('dashboard.minhas-memorias') }}">
                 <i class="fas fa-camera-retro"></i>
                 Minhas Memórias
             </a>

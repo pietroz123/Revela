@@ -35,7 +35,11 @@ class AlbumController extends Controller
      */
     public function store(Request $request)
     {
-        dd(request());
+        $user_id = auth()->user()->id;
+        $album_description = request('album-description');
+        $album_name = request('album-name');
+        $photos = request('fileuploader-list-files');
+        dd(json_decode($photos));
     }
 
     /**

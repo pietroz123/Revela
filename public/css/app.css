@@ -789,3 +789,52 @@ input:-webkit-autofill {
   -webkit-clip-path: polygon(100% 0%, 100% 110px, 0% 110px, 0% 0%);
           clip-path: polygon(100% 0%, 100% 110px, 0% 110px, 0% 0%);
 }
+
+#my-albums .album-month {
+  border-bottom: 1px solid lightgrey;
+  margin-top: 30px;
+  font-family: "Exo", sans-serif;
+}
+#my-albums .albums {
+  display: flex;
+  flex-wrap: wrap;
+}
+#my-albums .albums .album-card {
+  position: relative;
+  float: left;
+  margin-top: 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  width: calc(20% - 10px);
+  height: 100%;
+}
+#my-albums .albums .album-card img {
+  border-radius: 10px;
+  display: block;
+  width: 100%;
+}
+#my-albums .albums .album-card a {
+  color: inherit;
+  -webkit-appearance: initial;
+}
+#my-albums .albums .album-card a:hover {
+  color: #DB3D44 !important;
+}
+#my-albums .albums .album-card:not(:last-of-type) {
+  margin-right: 10px;
+}
+#my-albums .albums .album-card:hover {
+  transform: scale(1.05);
+}
+#my-albums .albums .album-name {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  background: white;
+  background: rgba(255, 255, 255, 0.8);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 600;
+}

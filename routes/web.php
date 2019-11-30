@@ -29,6 +29,7 @@ Route::get('/dashboard/album-do-mes', 'DashboardController@albumDoMes')->name('d
 Route::get('/dashboard/meus-pedidos', 'DashboardController@meusPedidos')->name('dashboard.meus-pedidos');
 Route::get('/dashboard/dados-cadastrais', 'DashboardController@dadosCadastrais')->name('dashboard.dados-cadastrais');
 Route::get('/dashboard/editar-dados-cadastrais', 'DashboardController@editarDadosCadastrais')->name('dashboard.editar-dados-cadastrais');
+Route::get('/dashboard/minhas-memorias', 'DashboardController@minhasMemorias')->name('dashboard.minhas-memorias');
 
 
 /**

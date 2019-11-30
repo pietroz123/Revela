@@ -83,7 +83,7 @@
         <div class="form-group row">
             <div class="col-5">
                 <label for="album-description">Descrição Especial (Opcional)</label>
-                <textarea class="form-control" id="album-description" rows="3" placeholder="Descrição"></textarea>
+                <textarea class="form-control" id="album-description" name="album-description" rows="3" placeholder="Descrição"></textarea>
             </div>   
         </div>
         

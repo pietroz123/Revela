@@ -103,4 +103,10 @@ class DashboardController extends Controller
             'cities' => $cities,
         ]);
     }
+
+    public function minhasMemorias()
+    {
+        return view('dashboard.dashboard-minhas-memorias');
+    }
+
 }
