@@ -290,17 +290,44 @@
                             item.html.find('.fileuploader-action-popup').hide();
                             parentEl.find('[data-action="fileuploader-edit"]').hide();
 
-                            $.post('php/ajax_resize_file.php', {name: item.name, _editor: JSON.stringify(item.editor), fileuploader: 1}, function() {
-                                item.reader.read(function() {
-                                    item.html.find('.fileuploader-action-popup').show();
-                                    parentEl.find('[data-action="fileuploader-edit"]').show();
-                                    
-                                    item.popup.html = item.popup.editor = item.editor.crop = item.editor.rotation = item.popup.zoomer = null;
-                                    item.renderThumbnail();
-                                }, null, true);
+                            $.ajax({
+                                url: '/user/ajax_resize_file',
+                                method: 'POST',
+                                data: {
+                                    _token: inputEl.attr('data-upload-token'),
+                                    name: item.name, 
+                                    _editor: JSON.stringify(item.editor), 
+                                    fileuploader: 1
+                                },
+                                success: function(retorno) {
+                                    console.log('Success');
+                                    console.log(retorno);
+                                    item.reader.read(function() {
+                                        item.html.find('.fileuploader-action-popup').show();
+                                        parentEl.find('[data-action="fileuploader-edit"]').show();
+                                        
+                                        item.popup.html = item.popup.editor = item.editor.crop = item.editor.rotation = item.popup.zoomer = null;
+                                        item.renderThumbnail();
+                                    }, null, true);
+                                },
+                                error: function(retorno) {
+                                    console.log('Error');
+                                    console.log(retorno);
+                                }
                             }).always(function() {
                                 delete item.isSaving;
                             });
+                            // $.post('php/ajax_resize_file.php', {name: item.name, _editor: JSON.stringify(item.editor), fileuploader: 1}, function() {
+                            //     item.reader.read(function() {
+                            //         item.html.find('.fileuploader-action-popup').show();
+                            //         parentEl.find('[data-action="fileuploader-edit"]').show();
+                                    
+                            //         item.popup.html = item.popup.editor = item.editor.crop = item.editor.rotation = item.popup.zoomer = null;
+                            //         item.renderThumbnail();
+                            //     }, null, true);
+                            // }).always(function() {
+                            //     delete item.isSaving;
+                            // });
                         }
                     }
                 },

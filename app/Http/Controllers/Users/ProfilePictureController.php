@@ -101,6 +101,22 @@ class ProfilePictureController extends Controller
      */
     public function resizePicture(Request $request)
     {
+        $fileuploader = request('fileuploader');
+        $name = request('name');
+        $_editor = request('_editor');
 
+        if (isset($fileuploader) && isset($name) && isset($_editor)) {
+            $uploadDir = 'user_images/';
+            $file = storage_path('app/public/') . $uploadDir . str_replace(array('/', '\\'), '', $name);
+            
+            if (is_file($file)) {
+                $editor = json_decode($_editor, true);
+    
+                $FileUploader = Fileuploader::resize($file, null, null, null, (isset($editor['crop']) ? $editor['crop'] : null), 100, (isset($editor['rotation']) ? $editor['rotation'] : null));
+            }
+        }
+
+        echo json_encode($FileUploader);
+        exit;
     }
 }
