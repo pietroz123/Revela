@@ -43,11 +43,17 @@ Route::namespace('Users')->prefix('user')->group(function() {
 
 
 /**
- * UPLOAD ROUTES
+ * ALBUM ROUTES
  */
-Route::post('/ajax_remove_file', 'AlbumController@removeFile');
-Route::post('/ajax_rename_file', 'AlbumController@renameFile');
-Route::post('/ajax_upload_file', 'AlbumController@uploadFile')->name('photos.upload');
+Route::namespace('Albums')->prefix('albums')->group(function() {
+
+    // Photo Management
+    Route::post('/ajax_main_file', 'AlbumPhotosController@setAsMainFile');
+    Route::post('/ajax_remove_file', 'AlbumPhotosController@removeFile');
+    Route::post('/ajax_rename_file', 'AlbumPhotosController@renameFile');
+    Route::post('/ajax_upload_file', 'AlbumPhotosController@uploadFile')->name('photos.upload');
+
+});
 
 use App\User;
 

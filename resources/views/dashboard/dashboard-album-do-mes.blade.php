@@ -198,7 +198,7 @@
                 container: '.fileuploader-theme-gallery .fileuploader-input'
             },
             upload: {
-                url: '/ajax_upload_file',
+                url: '/albums/ajax_upload_file',
                 data: {
                     album_id: $('#album-photos-input').attr('data-album-id'),
                 },
@@ -322,7 +322,7 @@
 
                         if (x && item.data.listProps) {
                             $.ajax({
-                                url: '/ajax_rename_file',
+                                url: '/albums/ajax_rename_file',
                                 method: 'POST',
                                 data: {
                                     _token: inputEl.attr('data-upload-token'),
@@ -369,22 +369,39 @@
 
                     // set main
                     if ($target.is('.gallery-action-asmain') && item.data.listProps) {
-                        $.post('php/ajax.php?type=asmain', {name: item.name, id: item.data.listProps.id}, function() {
-                            api.getFiles().forEach(function(val) {
-                                delete val.data.isMain;
-                                val.html.removeClass('file-main-0 file-main-1');
-                            });
-                            item.html.addClass('file-main-1');
-                            item.data.isMain = true;
+                        $.ajax({
+                            url: '/albums/ajax_main_file',
+                            method: 'POST',
+                            data: {
+                                album_id: $('#album-photos-input').attr('data-album-id'),
+                                _token: inputEl.attr('data-upload-token'),
+                                name: item.name, 
+                                id: item.data.listProps.id,
+                            },
+                            success: function(retorno) {
+                                console.log('Success');
+                                console.log(retorno);
 
-                            api.updateFileList();
+                                api.getFiles().forEach(function(val) {
+                                    delete val.data.isMain;
+                                    val.html.removeClass('file-main-0 file-main-1');
+                                });
+                                item.html.addClass('file-main-1');
+                                item.data.isMain = true;
+
+                                api.updateFileList();
+                            },
+                            error: function(retorno) {
+                                console.log('Error');
+                                console.log(retorno);
+                            }
                         });
                     }
                 });
             },
             onRemove: function(item, listEl, parentEl, newInputEl, inputEl) {
                 $.ajax({
-                    url: '/ajax_remove_file',
+                    url: '/albums/ajax_remove_file',
                     method: 'POST',
                     data: {
                         album_id: $('#album-photos-input').attr('data-album-id'),
@@ -403,14 +420,14 @@
             },
             captions: {
                 feedback: 'Drag & Drop',
-                setting_asMain: 'Use as main',
-                setting_download: 'Download',
-                setting_edit: 'Edit',
-                setting_open: 'Open',
-                setting_rename: 'Rename',
-                rename: 'Enter the new file name:',
-                renameError: 'Please enter another name.',
-                imageSizeError: 'The image ${name} is too small.',
+                setting_asMain: 'Usar como principal',
+                setting_download: 'Baixar',
+                setting_edit: 'Editar',
+                setting_open: 'Abrir',
+                setting_rename: 'Renomear',
+                rename: 'Entre com o novo nome:',
+                renameError: 'Por favor digite outro nome.',
+                imageSizeError: 'A imagem ${name} é muito pequena.',
             }
         });
 
