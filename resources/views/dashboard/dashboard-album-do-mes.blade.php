@@ -85,6 +85,12 @@
     </div>
 
     <h5 class="mt-5 mb-4">Importar Fotos</h5>
+    <h6>
+        <span class="n-photos-selected">0</span>
+        /
+        <span class="n-photos-max">{{ Auth::user()->subscription->plan->number_of_photos }}</span> 
+        fotos selecionadas
+    </h6>
 
     <div class="form-group">
         <input type="file" name="files" id="album-photos-input" data-upload-url="{{ route('photos.upload') }}" data-upload-token="{{ csrf_token() }}" data-album-month="{{ date('n') }}">
@@ -207,6 +213,15 @@
                 start: true,
                 synchron: true,
                 beforeSend: function(item, listEl, parentEl, newInputEl, inputEl) {
+
+                    /**
+                     * Check if number of photos has exceeded max 
+                     */
+                    if ($('.n-photos-selected') == $('.n-photos-max')) {
+                        alert('O número máximo de fotos do seu plano foi atingido.');
+                        return false;
+                    }
+
                     // check the image size first (onImageLoaded)
                     if (item.format == 'image' && !item.reader.done)
                         return false;
@@ -226,7 +241,8 @@
                     console.log(item);
                     
                 },
-                onSuccess: function(result, item) {
+                onSuccess: function(result, item, listEl, parentEl, newInputEl, inputEl) {
+
                     var data = {};
 
                     try {
@@ -274,6 +290,17 @@
                         item.html.find('.fileuploader-action-sort').removeClass('is-hidden');
                         item.html.find('.fileuploader-action-settings').removeClass('is-hidden');
                     }, 400);
+
+                    /**
+                     * Get API instance
+                     */
+                    const api = $.fileuploader.getInstance(inputEl);
+                    const nPhotos = api.getFiles().length;
+
+                    // Update number of photos selected
+                    $('.n-photos-selected').text(nPhotos);
+
+
                 },
                 onError: function(item) {
                     item.html.find('.progress-holder, .fileuploader-action-popup, .fileuploader-item-image').hide();
