@@ -43,4 +43,7 @@ class User extends Authenticatable
     public function subscription() {
         return $this->hasOne('App\Subscription');
     }
+    public function city() {
+        return $this->belongsTo('App\City');
+    }
 }

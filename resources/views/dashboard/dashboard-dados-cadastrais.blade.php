@@ -95,12 +95,12 @@
                             </div>
                             <div class="col">
                                 <div class="form-group">
-                                    <label for="cidade">Cidade</label>
-                                    <select class="browser-default custom-select" id="cidade" name="cidade" required>
+                                    <label for="city">Cidade</label>
+                                    <select class="browser-default custom-select" id="city" name="city" disabled>
                                         <option>Cidade</option>
-                                        {{-- @foreach ($cidades as $cidade) --}}
-                                            {{-- <option value="{{ $cidade->id }}" {{ $cliente->cidade ? ($cliente->cidade->nome == $cidade->nome ? 'selected' : '') : '' }}>{{ $cidade->nome }}</option> --}}
-                                        {{-- @endforeach --}}
+                                        @foreach ($cities as $city)
+                                            <option value="{{ $city->id }}" {{ auth()->user()->city ? (auth()->user()->city->name == $city->name ? 'selected' : '') : '' }}>{{ $city->name }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
@@ -317,17 +317,6 @@
                             }).always(function() {
                                 delete item.isSaving;
                             });
-                            // $.post('php/ajax_resize_file.php', {name: item.name, _editor: JSON.stringify(item.editor), fileuploader: 1}, function() {
-                            //     item.reader.read(function() {
-                            //         item.html.find('.fileuploader-action-popup').show();
-                            //         parentEl.find('[data-action="fileuploader-edit"]').show();
-                                    
-                            //         item.popup.html = item.popup.editor = item.editor.crop = item.editor.rotation = item.popup.zoomer = null;
-                            //         item.renderThumbnail();
-                            //     }, null, true);
-                            // }).always(function() {
-                            //     delete item.isSaving;
-                            // });
                         }
                     }
                 },

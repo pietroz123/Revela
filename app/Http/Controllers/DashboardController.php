@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use \FileUploader;
 use App\Plan;
+use App\City;
 
 class DashboardController extends Controller
 {
@@ -40,6 +41,9 @@ class DashboardController extends Controller
 
     public function dadosCadastrais()
     {
+        // Get all cities
+        $cities = City::all();
+
         // Get all available plans
         $plans = Plan::all();
 
@@ -61,6 +65,7 @@ class DashboardController extends Controller
         return view('dashboard.dashboard-dados-cadastrais', [
             'plans' => $plans,
             'avatar' => $avatar,
+            'cities' => $cities,
         ]);
     }
 }
