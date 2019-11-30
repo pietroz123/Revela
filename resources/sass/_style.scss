@@ -378,6 +378,11 @@ $g: linear-gradient(116.7deg, rgba(37, 130, 196, 0.65) 0%, rgba(37, 130, 196, 0)
     .fileuploader {
         width: 160px;
         height: 160px;
+        button.fileuploader-menu-open {
+            &:hover {
+                opacity: 0.96;
+            }
+        }
     }
 }
 

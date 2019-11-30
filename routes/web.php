@@ -29,6 +29,18 @@ Route::get('/dashboard/album-do-mes', 'DashboardController@albumDoMes')->name('d
 Route::get('/dashboard/meus-pedidos', 'DashboardController@meusPedidos')->name('dashboard.meus-pedidos');
 Route::get('/dashboard/dados-cadastrais', 'DashboardController@dadosCadastrais')->name('dashboard.dados-cadastrais');
 
+/**
+ * USER ROUTES
+ */
+Route::namespace('Users')->prefix('user')->group(function() {
+
+    // Profile Picture
+    Route::post('/ajax_remove_file', 'ProfilePictureController@removePicture');
+    Route::post('/ajax_resize_file', 'ProfilePictureController@resizePicture');
+    Route::post('/ajax_upload_file', 'ProfilePictureController@uploadPicture');
+
+});
+
 
 /**
  * UPLOAD ROUTES

@@ -25,8 +25,10 @@
                 <input 
                     type="file" 
                     name="files" 
+                    id="profile-picture-input"
                     data-fileuploader-default="{{ $default_avatar }}" 
                     data-fileuploader-files='{{ isset($avatar) ? json_encode(array($avatar)) : '' }}'{{ !$enabled ? ' disabled' : '' }}
+                    data-upload-token="{{ csrf_token() }}"
                     data-user-id="{{ Auth::user()->id }}"
                 >
                 {{-- END Profile Picture --}}
@@ -303,17 +305,19 @@
                     }
                 },
                 upload: {
-                    url: 'php/ajax_upload_file.php',
+                    url: '/user/ajax_upload_file',
                     data: null,
                     type: 'POST',
                     enctype: 'multipart/form-data',
                     start: false,
-                    beforeSend: function(item, listEl, parentEl) {
+                    beforeSend: function(item, listEl, parentEl, newInputEl, inputEl) {
                         if (item.editor && (typeof item.editor.rotation != "undefined" || item.editor.crop)) {
                             item.upload.data.fileuploader = 1;
                             item.upload.data.name = item.name;
                             item.upload.data._editorr = JSON.stringify(item.editor);
                         }
+
+                        item.upload.data._token = inputEl.attr('data-upload-token');
                         
                         item.image.hide();
                         item.html.removeClass('upload-complete');
@@ -321,6 +325,8 @@
                         this.onProgress({percentage: 0}, item);
                     },
                     onSuccess: function(result, item, listEl, parentEl, newInputEl, inputEl) {
+                        console.log(result);
+                        
                         var api = $.fileuploader.getInstance(inputEl),
                             $progressBar = item.html.find('.progressbar3'),
                             data = {};

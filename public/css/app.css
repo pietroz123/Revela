@@ -352,6 +352,9 @@
   width: 160px;
   height: 160px;
 }
+#profile-picture-container .fileuploader button.fileuploader-menu-open:hover {
+  opacity: 0.96;
+}
 
 .current-plan {
   background-color: #ee4d4d;

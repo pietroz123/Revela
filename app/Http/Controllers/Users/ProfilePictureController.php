@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Users;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
+use \FileUploader;
 
 class ProfilePictureController extends Controller
 {
@@ -15,7 +17,12 @@ class ProfilePictureController extends Controller
     public function uploadPicture(Request $request)
     {
         // Upload Directory
-        $path = storage_path('app/public/') . 'user_images/' . request('user_id') . '/';
+        $path = storage_path('app/public/') . 'user_images/';
+
+        // Verify if there is a folder for the album, if not creates one
+        if (!File::isDirectory($path)) {
+            File::makeDirectory($path, 0777, true, true);
+        }
 
         // Upload Configuration
         $configuration = [
@@ -35,15 +42,15 @@ class ProfilePictureController extends Controller
 
         // Get info from request
         $fileuploader = request('fileuploader');
-        $name = request('name');
+        $name = auth()->user()->email;
         
         if ( isset($fileuploader) && isset($name) ) {
             $name = str_replace( array('/', '\\'), '', $name );
             
-            if (is_file($configuration['uploadDir'] . $name)) {
+            // if (is_file($configuration['uploadDir'] . $name)) {
                 $configuration['title'] = $name;
                 $configuration['replace'] = true;
-            }
+            // }
         }
     
         // initialize FileUploader
