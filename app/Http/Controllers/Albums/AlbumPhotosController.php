@@ -35,14 +35,19 @@ class AlbumPhotosController extends Controller
 	 */
 	public function uploadFile(Request $request) {
 
-        $number_of_photos_selected = request('number_of_photos_selected');
-        $max_number_of_photos = auth()->user()->subscription->plan->number_of_photos;
-
+        $number_of_photos_selected = (int) $this->numberOfPhotos(date('n'));
+        $max_number_of_photos = (int) auth()->user()->subscription->plan->number_of_photos;
+        
         /**
          * Check if number of photos reached max
          */
         if ($number_of_photos_selected == $max_number_of_photos) {
-            return false;
+            return response()->json([
+                'error' => [
+                    'code' => '403',
+                    'message' => 'Número máximo de imagens atingido.'
+                ]
+            ]);
             exit;
         }
 
@@ -106,5 +111,38 @@ class AlbumPhotosController extends Controller
     public function setAsMainFile(Request $request) {
         // TODO
         exit;
+    }
+
+    /**
+     * Get number of photos in album
+     * 
+     * @param $month: Number of month (1, 2, 3,..., 12)
+     * @return $n_photos: Number of photos inside album  
+     */
+    private function numberOfPhotos($month)
+    {
+        /**
+         * Get album photos
+         */
+        $path = storage_path('app/public/') . 'albums/' . auth()->user()->id . '/' . $month . '/';
+
+        // Verify if there is a folder for the project, if not creates one
+        if (!File::isDirectory($path)) {
+            File::makeDirectory($path, 0777, true, true);
+        }
+
+        // Get files from folder
+        $filesInFolder = File::files(storage_path('app/public/albums/') . auth()->user()->id . '/' . $month);
+        $files = array();
+        foreach ($filesInFolder as $file) {
+            array_push($files, [
+                'name' => $file->getFilename(),
+                'size' => $file->getSize(),
+                'type' => File::mimeType($file->getPathname()),
+                'file' => '/storage/albums/' . auth()->user()->id . '/' . $month . '/' . $file->getFilename(),
+            ]);
+        }
+
+        return count($files);
     }
 }

@@ -209,7 +209,6 @@
                 url: '/albums/ajax_upload_file',
                 data: {
                     album_month: $('#album-photos-input').attr('data-album-month'),
-                    number_of_photos_selected: Number($('.n-photos-selected').text()),
                 },
                 type: 'POST',
                 enctype: 'multipart/form-data',
@@ -325,9 +324,7 @@
                     }
 
                 },
-                onError: function(item) {
-
-                    console.log(item);
+                onError: function(item, listEl, parentEl, newInputEl, inputEl, jqXHR, textStatus, errorThrown) {
 
                     item.html.find('.progress-holder, .fileuploader-action-popup, .fileuploader-item-image').hide();
 
