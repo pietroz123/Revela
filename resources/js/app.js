@@ -5,3 +5,5 @@
  */
 
 require('./bootstrap');
+
+window.jquerymask = require('jquery-mask-plugin');

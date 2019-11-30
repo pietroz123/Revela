@@ -1,6 +1,20 @@
 $(document).ready(function() {
 
     // =======================================================
+    // MÁSCARAS
+    // =======================================================
+
+    $('#cellphone').mask('(00) 00000-0000', {
+        placeholder: "(__) _____-____"
+    });
+    $('#phone').mask('(00) 0000-0000', {
+        placeholder: "(__) ____-____"
+    });
+    $('#zip_code').mask('00000-000', {
+        placeholder: "_____-___"
+    });
+
+    // =======================================================
     // Preenchimento automatico do endereco via CEP
     // =======================================================
 
@@ -44,7 +58,7 @@ $(document).ready(function() {
         var cep = $(this).val().replace(/\D/g, '');
 
         // Verifica se o CEP não é vazio
-        if (cep != "") {
+        if (cep != "" && cep.length == 8) {
 
             // Loading enquanto procura o CEP
             $('#city').val('...');
