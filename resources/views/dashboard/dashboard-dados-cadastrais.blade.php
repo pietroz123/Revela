@@ -462,18 +462,32 @@
                     
                     parentEl.find('.fileuploader-menu ul a').hide().filter('[data-action="fileuploader-input"]').show();
                 },
-                onRemove: function(item) {
-                    if (item.name && (item.appended || item.uploaded))
-                        $.post('php/ajax_remove_file.php', {
-                            file: item.name
+                onRemove: function(item, listEl, parentEl, newInputEl, inputEl) {
+                    if (item.name && (item.appended || item.uploaded)) {
+                        $.ajax({
+                            url: '/user/ajax_remove_file',
+                            method: 'POST',
+                            data: {
+                                _token: inputEl.attr('data-upload-token'),
+                                file: item.name,
+                            },
+                            success: function(retorno) {
+                                console.log('Success');
+                                console.log(retorno);
+                            },
+                            error: function(retorno) {
+                                console.log('Error');
+                                console.log(retorno);
+                            }
                         });
+                    }
                 },
                 captions: {
-                    edit: 'Edit',
+                    edit: 'Editar',
                     upload: 'Upload',
-                    remove: 'Remove',
+                    remove: 'Remover',
                     errors: {
-                        filesLimit: 'Only 1 file is allowed to be uploaded.',
+                        filesLimit: 'Apenas um arquivo pode ser carregado de uma vez.',
                     }
                 }
             });

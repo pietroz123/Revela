@@ -48,7 +48,7 @@ class DashboardController extends Controller
         $avatar_url = auth()->user()->profile_picture;
 
         // Get user avatar
-        $avatar = array(
+        $avatar = auth()->user()->profile_picture ? array(
             "name" => $avatar_url,
             "type" => FileUploader::mime_content_type($path . $avatar_url),
             "size" => filesize($path . $avatar_url),
@@ -56,7 +56,7 @@ class DashboardController extends Controller
             "data" => array(
                 "readerForce" => true
             )
-        );
+        ) : null;
 
         return view('dashboard.dashboard-dados-cadastrais', [
             'plans' => $plans,

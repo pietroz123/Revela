@@ -60,7 +60,7 @@ class ProfilePictureController extends Controller
         // call to upload the files
         $data = $FileUploader->upload();
 
-        // Update User model
+        // Update User model on DB
         $user = User::find(auth()->user()->id);
         $user->profile_picture = $data['files'][0]['name'];
         $user->save();
@@ -83,8 +83,13 @@ class ProfilePictureController extends Controller
             $file = storage_path('app/public/') . $uploadDir . str_replace(array('/', '\\'), '', request('file'));
             echo $file;
 
-			if(file_exists($file))
+            // Verify if file exists, delete de file, and update User model on DB
+			if(file_exists($file)) {
 				unlink($file);
+                $user = User::find(auth()->user()->id);
+                $user->profile_picture = null;
+                $user->save();
+            }
 		}
 		exit;
     }
