@@ -43,7 +43,7 @@ class ProfilePictureController extends Controller
 
         // Get info from request
         $fileuploader = request('fileuploader');
-        $name = auth()->user()->email;
+        $name = auth()->user()->id;
         
         if ( isset($fileuploader) && isset($name) ) {
             $name = str_replace( array('/', '\\'), '', $name );
