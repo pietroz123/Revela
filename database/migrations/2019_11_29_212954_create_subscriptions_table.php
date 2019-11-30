@@ -21,6 +21,10 @@ class CreateSubscriptionsTable extends Migration
             $table->dateTime('subscription_start');
             $table->dateTime('subscription_end');
         });
+        Schema::table('subscriptions', function (Blueprint $table) {
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('plan_id')->references('id')->on('plans')->onDelete('cascade')->onUpdate('cascade');
+        });
     }
 
     /**

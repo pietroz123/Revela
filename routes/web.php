@@ -36,3 +36,12 @@ Route::get('/dashboard/dados-cadastrais', 'DashboardController@dadosCadastrais')
 Route::post('/ajax_remove_file', 'AlbumController@removeFile');
 Route::post('/ajax_rename_file', 'AlbumController@renameFile');
 Route::post('/ajax_upload_file', 'AlbumController@uploadFile')->name('photos.upload');
+
+use App\User;
+
+//!!! TESTE
+Route::get('/teste', function() {
+
+    dd(User::first()->subscription->plan);
+
+});

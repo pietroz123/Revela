@@ -35,14 +35,15 @@ class UsersTableSeeder extends Seeder
         ]);
 
         $plan = Plan::where('name', 'Iniciante')->first();
-        $purchased_at = '2019-12-29 15:33:60';
+        $purchased_at = '2019-12-29 15:33:40';
         $start = new DateTime($purchased_at);
 
         Subscription::create([
             'user_id' => $user->id,
             'plan_id' => $plan->id,
             'purchased_at' => $purchased_at,
-            'subscription_start' => '',
+            'subscription_start' => $start->modify('+1 day')->format('Y-m-d H:i:s'),
+            'subscription_end' => $start->modify('+' . $plan->number_of_months . ' months')->format('Y-m-d H:i:s'),
         ]);
     }
 }
