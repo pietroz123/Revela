@@ -424,3 +424,11 @@ $g: linear-gradient(116.7deg, rgba(37, 130, 196, 0.65) 0%, rgba(37, 130, 196, 0)
     &::-moz-selection { background: transparent; }
     cursor: default;
 }
+
+// Editar Dados Cadastrais
+
+.btn-editar-dados {
+    float: right;
+    // background-color: $main-color-v2;
+    // color: white;
+}

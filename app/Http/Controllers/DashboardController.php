@@ -96,6 +96,11 @@ class DashboardController extends Controller
 
     public function editarDadosCadastrais()
     {
-        return view('dashboard.dashboard-editar-dados-cadastrais');
+        // Get all cities
+        $cities = City::all();
+
+        return view('dashboard.dashboard-editar-dados-cadastrais', [
+            'cities' => $cities,
+        ]);
     }
 }

@@ -403,6 +403,10 @@ body {
   background: transparent;
 }
 
+.btn-editar-dados {
+  float: right;
+}
+
 .btn {
   font-size: 1rem;
   text-transform: none;
