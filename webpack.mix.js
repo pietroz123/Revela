@@ -31,3 +31,6 @@ mix.scripts([
 
 // Scripts Pages
 mix.scripts('resources/js/pages/landing.js', 'public/js/pages/landing.js');
+
+// Scripts Dashboard
+mix.scripts('resources/js/dashboard/editar-dados-cadastrais.js', 'public/js/dashboard/editar-dados-cadastrais.js');

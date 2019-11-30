@@ -34,12 +34,21 @@ Route::get('/dashboard/editar-dados-cadastrais', 'DashboardController@editarDado
 /**
  * USER ROUTES
  */
-Route::namespace('Users')->prefix('user')->group(function() {
+Route::namespace('Users')->group(function() {
+
+    // Resource Routes
+    Route::get('/users', 'UserController@index')->name('users.index');
+    Route::get('/users/create','UserController@create')->name('users.create');
+    Route::post('/users', 'UserController@store')->name('users.store');
+    Route::get('/users/{user}', 'UserController@show')->name('users.show');
+    Route::get('/users/{user}/edit', 'UserController@edit')->name('users.edit');
+    Route::put('/users/{user}/update', 'UserController@update')->name('users.update');
+    Route::delete('/users/{user}', 'UserController@destroy')->name('users.destroy');
 
     // Profile Picture
-    Route::post('/ajax_remove_file', 'ProfilePictureController@removePicture');
-    Route::post('/ajax_resize_file', 'ProfilePictureController@resizePicture');
-    Route::post('/ajax_upload_file', 'ProfilePictureController@uploadPicture');
+    Route::post('user/ajax_remove_file', 'ProfilePictureController@removePicture');
+    Route::post('user/ajax_resize_file', 'ProfilePictureController@resizePicture');
+    Route::post('user/ajax_upload_file', 'ProfilePictureController@uploadPicture');
 
 });
 
