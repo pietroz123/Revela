@@ -35,6 +35,17 @@ class AlbumPhotosController extends Controller
 	 */
 	public function uploadFile(Request $request) {
 
+        $number_of_photos_selected = request('number_of_photos_selected');
+        $max_number_of_photos = auth()->user()->subscription->plan->number_of_photos;
+
+        /**
+         * Check if number of photos reached max
+         */
+        if ($number_of_photos_selected == $max_number_of_photos) {
+            return false;
+            exit;
+        }
+
 		$path = storage_path('app/public/') . 'albums/' . auth()->user()->id . '/' . request('album_month') . '/';
 
         // Verify if there is a folder for the album, if not creates one

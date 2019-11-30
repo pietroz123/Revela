@@ -460,6 +460,10 @@ input:-webkit-autofill {
   width: 100% !important;
 }
 
+.fileuploader-disabled {
+  cursor: not-allowed;
+}
+
 #timeline .timeline-item:after, #timeline .timeline-item:before {
   content: "";
   display: block;

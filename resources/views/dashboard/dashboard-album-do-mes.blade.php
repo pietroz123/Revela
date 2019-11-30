@@ -207,6 +207,7 @@
                 url: '/albums/ajax_upload_file',
                 data: {
                     album_month: $('#album-photos-input').attr('data-album-month'),
+                    number_of_photos_selected: Number($('.n-photos-selected').text()),
                 },
                 type: 'POST',
                 enctype: 'multipart/form-data',
@@ -215,9 +216,17 @@
                 beforeSend: function(item, listEl, parentEl, newInputEl, inputEl) {
 
                     /**
+                     * Get API instance
+                     */
+                    const api = $.fileuploader.getInstance(inputEl);
+
+                    /**
                      * Check if number of photos has exceeded max 
                      */
-                    if ($('.n-photos-selected') == $('.n-photos-max')) {
+                    var nPhotosSelected = Number($('.n-photos-selected').text());
+                    const nPhotosMax = Number($('.n-photos-max').text());
+
+                    if (nPhotosSelected == nPhotosMax) {
                         alert('O número máximo de fotos do seu plano foi atingido.');
                         return false;
                     }
@@ -242,6 +251,9 @@
                     
                 },
                 onSuccess: function(result, item, listEl, parentEl, newInputEl, inputEl) {
+
+                    console.log(result);
+                    
 
                     var data = {};
 
@@ -295,14 +307,26 @@
                      * Get API instance
                      */
                     const api = $.fileuploader.getInstance(inputEl);
-                    const nPhotos = api.getFiles().length;
+                    var nPhotosSelected = Number($('.n-photos-selected').text());
 
                     // Update number of photos selected
-                    $('.n-photos-selected').text(nPhotos);
+                    $('.n-photos-selected').text(nPhotosSelected + 1);
 
+                    /**
+                     * Check if number of photos has exceeded max 
+                     */
+                    nPhotosSelected = Number($('.n-photos-selected').text());
+                    const nPhotosMax = Number($('.n-photos-max').text());
+
+                    if (nPhotosSelected == nPhotosMax) {
+                        api.disable();
+                    }
 
                 },
                 onError: function(item) {
+
+                    console.log(item);
+
                     item.html.find('.progress-holder, .fileuploader-action-popup, .fileuploader-item-image').hide();
 
                     // add retry button
@@ -438,6 +462,26 @@
                     success: function(retorno) {
                         console.log('Success');
                         console.log(retorno);
+
+                        /**
+                         * Get API instance
+                         */
+                        const api = $.fileuploader.getInstance(inputEl);
+                        var nPhotosSelected = Number($('.n-photos-selected').text());
+
+                        // Update number of photos selected
+                        $('.n-photos-selected').text(nPhotosSelected - 1);
+
+                        /**
+                         * Check if number of photos has exceeded max 
+                         */
+                        nPhotosSelected = Number($('.n-photos-selected').text());
+                        const nPhotosMax = Number($('.n-photos-max').text());
+
+                        if (nPhotosSelected < nPhotosMax) {
+                            api.enable();
+                        }
+
                     },
                     error: function(retorno) {
                         console.log('Error');
