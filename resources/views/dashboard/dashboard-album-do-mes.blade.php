@@ -16,89 +16,93 @@
 
     <h2>Álbum do Mês ({{ \Carbon\Carbon::now()->format('F') }} de {{ \Carbon\Carbon::now()->year }})</h2>   
 
-    <h5 class="mt-5 mb-3">Selecionar Template</h5>
+    <form method="POST" action="{{ route('albums.store') }}">
+        @csrf
 
-    <div class="templates">
-
-        <div class="template">
-            <div class="template-description">
-                <span>Halloween</span>
-            </div>
-            <div class="template-image">
-                <img src="{{ asset('img/templates/halloween.png') }}" alt="Template de Halloween">
-            </div>
-        </div>
-
-        <div class="template">
-            <div class="template-description">
-                    <span>Férias com amigos</span>
+        <h5 class="mt-5 mb-3">Selecionar Template</h5>
+        
+        <div class="templates">
+        
+            <div class="template">
+                <div class="template-description">
+                    <span>Halloween</span>
                 </div>
                 <div class="template-image">
-                    <img src="{{ asset('img/templates/ferias-amigos.jpg') }}" alt="Template de Férias com amigos">
-            </div>
-        </div>
-
-        <div class="template">
-            <div class="template-description">
-                    <span>Férias com família</span>
+                    <img src="{{ asset('img/templates/halloween.png') }}" alt="Template de Halloween">
                 </div>
-                <div class="template-image">
-                    <img src="{{ asset('img/templates/ferias-familia.jpg') }}" alt="Template de Férias com família">
             </div>
-        </div>
-
-        <div class="template">
-            <div class="template-description">
-                    <span>Clássico</span>
+        
+            <div class="template">
+                <div class="template-description">
+                        <span>Férias com amigos</span>
+                    </div>
+                    <div class="template-image">
+                        <img src="{{ asset('img/templates/ferias-amigos.jpg') }}" alt="Template de Férias com amigos">
                 </div>
-                <div class="template-image">
-                    <img src="{{ asset('img/templates/classico.png') }}" alt="Template de Clássico">
             </div>
-        </div>
-
-        <div class="template">
-            <div class="template-description">
-                    <span>Dia-a-Dia</span>
+        
+            <div class="template">
+                <div class="template-description">
+                        <span>Férias com família</span>
+                    </div>
+                    <div class="template-image">
+                        <img src="{{ asset('img/templates/ferias-familia.jpg') }}" alt="Template de Férias com família">
                 </div>
-                <div class="template-image">
-                    <img src="{{ asset('img/templates/dia-a-dia.jpg') }}" alt="Template de Dia-a-Dia">
+            </div>
+        
+            <div class="template">
+                <div class="template-description">
+                        <span>Clássico</span>
+                    </div>
+                    <div class="template-image">
+                        <img src="{{ asset('img/templates/classico.png') }}" alt="Template de Clássico">
+                </div>
+            </div>
+        
+            <div class="template">
+                <div class="template-description">
+                        <span>Dia-a-Dia</span>
+                    </div>
+                    <div class="template-image">
+                        <img src="{{ asset('img/templates/dia-a-dia.jpg') }}" alt="Template de Dia-a-Dia">
+                </div>
+            </div>
+        
+        </div>
+        
+        
+        <h5 class="mt-5 mb-4">Configurações do Álbum</h5>
+        
+        <div class="form-group row">
+            <div class="col-5">
+                <label for="album-name">Nome do Álbum</label>
+                <input class="form-control" name="album-name" id="album-name" type="text" placeholder="Nome do álbum">
             </div>
         </div>
-
-    </div>
-
-
-    <h5 class="mt-5 mb-4">Configurações do Álbum</h5>
-
-    <div class="form-group row">
-        <div class="col-5">
-            <label for="album-name">Nome do Álbum</label>
-            <input class="form-control" name="album-name" id="album-name" type="text" placeholder="Nome do álbum">
+        
+        <div class="form-group row">
+            <div class="col-5">
+                <label for="album-description">Descrição Especial (Opcional)</label>
+                <textarea class="form-control" id="album-description" rows="3" placeholder="Descrição"></textarea>
+            </div>   
         </div>
-    </div>
-
-    <div class="form-group row">
-        <div class="col-5">
-            <label for="album-description">Descrição Especial (Opcional)</label>
-            <textarea class="form-control" id="album-description" rows="3" placeholder="Descrição"></textarea>
-        </div>   
-    </div>
-
-    <h5 class="mt-5 mb-4">Importar Fotos</h5>
-    <h6>
-        <span class="n-photos-selected">
-            {{ count($files) }}
-        </span>
-        /
-        <span class="n-photos-max">{{ Auth::user()->subscription->plan->number_of_photos }}</span> 
-        fotos selecionadas
-    </h6>
-
-    <div class="form-group">
-        <input type="file" name="files" id="album-photos-input" data-upload-url="{{ route('photos.upload') }}" data-upload-token="{{ csrf_token() }}" data-album-month="{{ date('n') }}">
-    </div>
-
-    <a href="#!" class="btn btn-info" id="btn-solicitar">Solicitar Álbum</a>
+        
+        <h5 class="mt-5 mb-4">Importar Fotos</h5>
+        <h6>
+            <span class="n-photos-selected">
+                {{ count($files) }}
+            </span>
+            /
+            <span class="n-photos-max">{{ Auth::user()->subscription->plan->number_of_photos }}</span> 
+            fotos selecionadas
+        </h6>
+        
+        <div class="form-group">
+            <input type="file" name="files" id="album-photos-input" data-upload-url="{{ route('photos.upload') }}" data-upload-token="{{ csrf_token() }}" data-album-month="{{ date('n') }}">
+        </div>
+        
+        <button class="btn btn-info" type="submit" id="btn-solicitar">Solicitar Álbum</button>
+    </form>
 
 @endsection
 

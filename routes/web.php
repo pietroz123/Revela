@@ -45,13 +45,16 @@ Route::namespace('Users')->prefix('user')->group(function() {
 /**
  * ALBUM ROUTES
  */
-Route::namespace('Albums')->prefix('albums')->group(function() {
+
+Route::namespace('Albums')->group(function() {
+    
+    Route::resource('/albums', 'AlbumController');
 
     // Photo Management
-    Route::post('/ajax_main_file', 'AlbumPhotosController@setAsMainFile');
-    Route::post('/ajax_remove_file', 'AlbumPhotosController@removeFile');
-    Route::post('/ajax_rename_file', 'AlbumPhotosController@renameFile');
-    Route::post('/ajax_upload_file', 'AlbumPhotosController@uploadFile')->name('photos.upload');
+    Route::post('albums/ajax_main_file', 'AlbumPhotosController@setAsMainFile');
+    Route::post('albums/ajax_remove_file', 'AlbumPhotosController@removeFile');
+    Route::post('albums/ajax_rename_file', 'AlbumPhotosController@renameFile');
+    Route::post('albums/ajax_upload_file', 'AlbumPhotosController@uploadFile')->name('photos.upload');
 
 });
 
