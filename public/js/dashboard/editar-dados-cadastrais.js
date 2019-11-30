@@ -31,28 +31,14 @@ $(document).ready(function() {
     //     "gia": "1004"
     // }
 
-    // Implementação do delay para o keyup
-    function delay(callback, ms) {
-        var timer = 0;
-        return function() {
-            var context = this, args = arguments;
-            clearTimeout(timer);
-            timer = setTimeout(function () {
-            callback.apply(context, args);
-            }, ms || 0);
-        };
-    }
-
     function limpa_formulario_cep() {
         // Limpa valores do formulário de cep.
         $('#city').val('');
         $('#street').val('');
         $('#neighborhood').val('');
-        $('#stree_complement').val('');
-        
     }
 
-    $(document).on('keyup', '#zip_code', delay(function() {
+    $(document).on('keyup', '#zip_code', function() {
 
         // Nova variável "cep" somente com dígitos.
         var cep = $(this).val().replace(/\D/g, '');
@@ -64,7 +50,6 @@ $(document).ready(function() {
             $('#city').val('...');
             $('#street').val('...');
             $('#neighborhood').val('...');
-            $('#stree_complement').val('...');
 
             //Consulta o webservice viacep.com.br/
             $.getJSON("https://viacep.com.br/ws/"+ cep +"/json/?callback=?", function(dados) {
@@ -77,7 +62,6 @@ $(document).ready(function() {
                     $('#city').val(valCidade).trigger('change.select2');
                     
                     $("#neighborhood").val(dados.bairro);
-                    $("#stree_complement").val(dados.complemento);
                 }
                 else {
                     //CEP pesquisado não foi encontrado.
@@ -89,6 +73,6 @@ $(document).ready(function() {
 
         }
 
-    }, 1500));
+    });
 
 });
