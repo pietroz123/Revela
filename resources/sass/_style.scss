@@ -349,7 +349,32 @@ $g: linear-gradient(116.7deg, rgba(37, 130, 196, 0.65) 0%, rgba(37, 130, 196, 0)
 // DADOS CADASTRAIS
 // =======================================================
 
+#profile-data-tabs {
+    position: relative;
+    z-index: 1;
+    padding: .7rem;
+    margin-bottom: -20px;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    background-color: $main-color;
+    border: 0;
+    border-radius: .25rem;
+    -webkit-box-shadow: 0 5px 11px 0 rgba(0,0,0,0.18), 0 4px 15px 0 rgba(0,0,0,0.15);
+    box-shadow: 0 5px 11px 0 rgba(0,0,0,0.18), 0 4px 15px 0 rgba(0,0,0,0.15);
+    .nav-link {
+        color: #fff;
+        border: 0;
+        -webkit-transition: all 0.4s;
+        transition: all 0.4s;
+        &.active {
+            background-color: rgba(0,0,0,0.2);
+            border-radius: .25rem;
+        }
+    }
+}
+
 #profile-picture-container {
+    max-width: 20%;
     .fileuploader {
         width: 160px;
         height: 160px;

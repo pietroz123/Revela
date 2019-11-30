@@ -32,8 +32,8 @@
                 {{-- END Profile Picture --}}
             </div>
 
-            <div class="col">
-                <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <div class="col mt-4">
+                <ul class="nav nav-tabs" id="profile-data-tabs" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link active" id="meus-dados-tab" data-toggle="tab" href="#meus-dados" role="tab" aria-controls="meus-dados"
                         aria-selected="true">Meus Dados</a>
@@ -47,29 +47,48 @@
                         aria-selected="false">Meu Plano</a>
                     </li>
                 </ul>
-                <div class="tab-content" id="myTabContent">
+                <div class="tab-content card px-4 pb-4" id="profile-data-tab-content">
                     <div class="tab-pane fade show active" id="meus-dados" role="tabpanel" aria-labelledby="meus-dados-tab">
-                        <div class="form-group mt-5">
-                            <label for="name">Nome</label>
-                            <input type="text" id="name" class="form-control" placeholder="Nome" value="{{ Auth::user()->name }}" readonly>
+                        <div class="row mt-5">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="name">Nome</label>
+                                    <input type="text" id="name" name="name" class="form-control" placeholder="Nome" value="{{ Auth::user()->name }}" readonly>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="cpf">CPF</label>
+                                    <input type="text" id="cpf" name="cpf" class="form-control" placeholder="999.999.999-99" value="{{ Auth::user()->cpf }}" readonly>
+                                </div>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="email">E-mail</label>
-                            <input type="text" id="email" class="form-control" placeholder="E-mail" value="{{ Auth::user()->email }}" readonly>
+                            <input type="text" id="email" name="email" class="form-control" placeholder="E-mail" value="{{ Auth::user()->email }}" readonly>
                         </div>
-                        <div class="form-group">
-                            <label for="cpf">CPF</label>
-                            <input type="text" id="cpf" class="form-control" placeholder="999.999.999-99" value="{{ Auth::user()->cpf }}" readonly>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="cellphone">Tel. Celular</label>
+                                    <input type="text" id="cellphone" name="cellphone" class="form-control" placeholder="Telefone Celular" value="{{ Auth::user()->cellphone }}" readonly>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="phone">Tel. Residencial</label>
+                                    <input type="text" id="phone" name="phone" class="form-control" placeholder="Telefone Celular" value="{{ Auth::user()->phone }}" readonly>
+                                </div>
+                            </div>
                         </div>
-
                     </div>
 
                     <div class="tab-pane fade" id="endereco" role="tabpanel" aria-labelledby="endereco-tab">
                         <div class="row mt-5">
                             <div class="col">
                                 <div class="form-group">
-                                    <label for="cep">CEP</label>
-                                    <input type="text" id="cep" class="form-control" placeholder="99999-999" value="{{ Auth::user()->zip_code }}" readonly>
+                                    <label for="zip_code">CEP</label>
+                                    <input type="text" id="zip_code" name="zip_code" class="form-control" placeholder="99999-999" value="{{ Auth::user()->zip_code }}" readonly>
                                 </div>
                             </div>
                             <div class="col">
@@ -86,28 +105,28 @@
                         </div>
             
                         <div class="form-group">
-                            <label for="bairro">Bairro</label>
-                            <input type="text" class="form-control" id="bairro" placeholder="Bairro" name="bairro" autocomplete="new" value="{{ Auth::user()->neighborhood }}" readonly>
+                            <label for="neighborhood">Bairro</label>
+                            <input type="text" class="form-control" id="neighborhood" placeholder="Bairro" name="neighborhood" autocomplete="new" value="{{ Auth::user()->neighborhood }}" readonly>
                         </div>
             
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
-                                    <label for="rua">Rua</label>
-                                    <input type="text" class="form-control" id="rua" placeholder="Rua" name="rua" autocomplete="new" value="{{ Auth::user()->street }}" readonly>
+                                    <label for="street">Rua</label>
+                                    <input type="text" class="form-control" id="street" placeholder="Rua" name="street" autocomplete="new" value="{{ Auth::user()->street }}" readonly>
                                 </div>
                             </div>
                             <div class="col-5">
                                 <div class="form-group">
-                                    <label for="numero-rua">Número</label>
-                                    <input type="text" class="form-control" id="numero-rua" placeholder="Nº" name="numero-rua" autocomplete="new" value="{{ Auth::user()->street_number }}" readonly >
+                                    <label for="street_number">Número</label>
+                                    <input type="text" class="form-control" id="street_number" placeholder="Nº" name="street_number" autocomplete="new" value="{{ Auth::user()->street_number }}" readonly >
                                 </div>
                             </div>
                         </div>
                         
                         <div class="form-group">
-                            <label for="complemento">Complemento</label>
-                            <input type="text" class="form-control" id="complemento" placeholder="Complemento" name="complemento" autocomplete="new" value="{{ Auth::user()->street_complement }}" readonly>
+                            <label for="street_complement">Complemento</label>
+                            <input type="text" class="form-control" id="street_complement" placeholder="Complemento" name="street_complement" autocomplete="new" value="{{ Auth::user()->street_complement }}" readonly>
                         </div>
 
                     </div>
