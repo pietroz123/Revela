@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use \FileUploader;
 use App\Plan;
 
 class DashboardController extends Controller
@@ -39,10 +40,27 @@ class DashboardController extends Controller
 
     public function dadosCadastrais()
     {
+        // Get all available plans
         $plans = Plan::all();
+
+        // Avatar path
+        $path = 'storage/user_images/';
+        $avatar_url = auth()->user()->profile_picture;
+
+        // Get user avatar
+        $avatar = array(
+            "name" => $avatar_url,
+            "type" => FileUploader::mime_content_type($path . $avatar_url),
+            "size" => filesize($path . $avatar_url),
+            "file" => asset($path . $avatar_url),
+            "data" => array(
+                "readerForce" => true
+            )
+        );
 
         return view('dashboard.dashboard-dados-cadastrais', [
             'plans' => $plans,
+            'avatar' => $avatar,
         ]);
     }
 }

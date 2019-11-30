@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 use \FileUploader;
+use App\User;
 
 class ProfilePictureController extends Controller
 {
@@ -58,6 +59,11 @@ class ProfilePictureController extends Controller
         
         // call to upload the files
         $data = $FileUploader->upload();
+
+        // Update User model
+        $user = User::find(auth()->user()->id);
+        $user->profile_picture = $data['files'][0]['name'];
+        $user->save();
     
         // export to js
         echo json_encode($data);
@@ -71,7 +77,16 @@ class ProfilePictureController extends Controller
      */
     public function removePicture(Request $request)
     {
+        if ( request()->has('file') ) {
 
+			$uploadDir = 'user_images/';
+            $file = storage_path('app/public/') . $uploadDir . str_replace(array('/', '\\'), '', request('file'));
+            echo $file;
+
+			if(file_exists($file))
+				unlink($file);
+		}
+		exit;
     }
 
     /**

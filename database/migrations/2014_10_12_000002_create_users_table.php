@@ -30,6 +30,7 @@ class CreateUsersTable extends Migration
             $table->boolean('allow_notifications');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('profile_picture')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

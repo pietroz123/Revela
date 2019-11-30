@@ -8,7 +8,11 @@
 <hr>
 
 <div class="d-flex flex-column justify-content-center align-items-center px-3 py-2 user-info">
-    <img src="https://image.flaticon.com/icons/svg/149/149071.svg" class="rounded-circle user-image mb-2" alt="">
+    @if ($pic = Auth::user()->profile_picture)
+        <img src="{{ asset('storage/user_images/' . $pic) }}" class="rounded-circle user-image mb-2" alt="User Profile Picture">
+    @else
+        <img src="https://image.flaticon.com/icons/svg/149/149071.svg" class="rounded-circle user-image mb-2" alt="">
+    @endif
     <p>{{ Auth::user()->name }}</p>
     <p class="subscription-plan mb-2">
         {{ Auth::user()->subscription->plan->name }}
