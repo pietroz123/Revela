@@ -15,26 +15,34 @@
 @section('dashboard-content')
     
     <div class="container">
-        <div class="row">
-            <div class="col-3" id="profile-picture-container">
+        <div class="d-flex flex-column align-items-center">
+            <div class="" id="profile-picture-container">
                 {{-- Profile Picture --}}
                 @php
                     $enabled = true;
                     $default_avatar = "https://image.flaticon.com/icons/svg/149/149071.svg";
                 @endphp
-                <input 
-                    type="file" 
-                    name="files" 
-                    id="profile-picture-input"
-                    data-fileuploader-default="{{ $default_avatar }}" 
-                    data-fileuploader-files='{{ isset($avatar) ? json_encode(array($avatar)) : '' }}'{{ !$enabled ? ' disabled' : '' }}
-                    data-upload-token="{{ csrf_token() }}"
-                    data-user-id="{{ Auth::user()->id }}"
-                >
+                <div class="d-flex align-items-center">
+                    <input 
+                        type="file" 
+                        name="files" 
+                        id="profile-picture-input"
+                        data-fileuploader-default="{{ $default_avatar }}" 
+                        data-fileuploader-files='{{ isset($avatar) ? json_encode(array($avatar)) : '' }}'{{ !$enabled ? ' disabled' : '' }}
+                        data-upload-token="{{ csrf_token() }}"
+                        data-user-id="{{ Auth::user()->id }}"
+                    >
+                    <div class="ml-4">
+                        <h5>{{ Auth::user()->name }}</h5>
+                        <h6 class="badge-dark">{{ Auth::user()->subscription->plan->name }}</h6>
+                    </div>
+                </div>
                 {{-- END Profile Picture --}}
             </div>
+            
+            <hr class="w-100 mt-4 mb-0">
 
-            <div class="col mt-4">
+            <div class="mt-4 w-100">
                 <ul class="nav nav-tabs" id="profile-data-tabs" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link active" id="meus-dados-tab" data-toggle="tab" href="#meus-dados" role="tab" aria-controls="meus-dados"
