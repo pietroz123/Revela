@@ -60,6 +60,6 @@ use App\User;
 //!!! TESTE
 Route::get('/teste', function() {
 
-    dd(User::first()->subscription->plan);
+    dd(date('n'));
 
 });

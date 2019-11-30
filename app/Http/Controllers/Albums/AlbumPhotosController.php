@@ -18,7 +18,7 @@ class AlbumPhotosController extends Controller
 
 		if ( request()->has('file') ) {
 
-			$uploadDir = 'albums/' . request('album_id') . '/';
+			$uploadDir = 'albums/' . auth()->user()->id . '/' . request('album_month') . '/';
             $file = storage_path('app/public/') . $uploadDir . str_replace(array('/', '\\'), '', request('file'));
             echo $file;
 
@@ -35,7 +35,7 @@ class AlbumPhotosController extends Controller
 	 */
 	public function uploadFile(Request $request) {
 
-		$path = storage_path('app/public/') . 'albums/' . request('album_id') . '/';
+		$path = storage_path('app/public/') . 'albums/' . auth()->user()->id . '/' . request('album_month') . '/';
 
         // Verify if there is a folder for the album, if not creates one
         if (!File::isDirectory($path)) {
@@ -74,8 +74,8 @@ class AlbumPhotosController extends Controller
 
         // Rename file
         File::move(
-            storage_path('app/public/') . 'albums/' . request('album_id') . '/' . $oldName, 
-            storage_path('app/public/') . 'albums/' . request('album_id') . '/' . $newName
+            storage_path('app/public/') . 'albums/' . auth()->user()->id . '/' . request('album_month') . '/' . $oldName, 
+            storage_path('app/public/') . 'albums/' . auth()->user()->id . '/' . request('album_month') . '/' . $newName
         );
 
         // Return JSON for view update (through JavaScript)

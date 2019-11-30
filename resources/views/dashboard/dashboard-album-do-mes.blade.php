@@ -87,7 +87,7 @@
     <h5 class="mt-5 mb-4">Importar Fotos</h5>
 
     <div class="form-group">
-        <input type="file" name="files" id="album-photos-input" data-upload-url="{{ route('photos.upload') }}" data-upload-token="{{ csrf_token() }}" data-album-id="1">
+        <input type="file" name="files" id="album-photos-input" data-upload-url="{{ route('photos.upload') }}" data-upload-token="{{ csrf_token() }}" data-album-month="{{ date('n') }}">
     </div>
 
     <a href="#!" class="btn btn-info" id="btn-solicitar">Solicitar Álbum</a>
@@ -200,7 +200,7 @@
             upload: {
                 url: '/albums/ajax_upload_file',
                 data: {
-                    album_id: $('#album-photos-input').attr('data-album-id'),
+                    album_month: $('#album-photos-input').attr('data-album-month'),
                 },
                 type: 'POST',
                 enctype: 'multipart/form-data',
@@ -326,7 +326,7 @@
                                 method: 'POST',
                                 data: {
                                     _token: inputEl.attr('data-upload-token'),
-                                    album_id: $('#album-photos-input').attr('data-album-id'),
+                                    album_month: $('#album-photos-input').attr('data-album-month'),
                                     name: item.name, 
                                     title: x
                                 },
@@ -373,7 +373,7 @@
                             url: '/albums/ajax_main_file',
                             method: 'POST',
                             data: {
-                                album_id: $('#album-photos-input').attr('data-album-id'),
+                                album_month: $('#album-photos-input').attr('data-album-month'),
                                 _token: inputEl.attr('data-upload-token'),
                                 name: item.name, 
                                 id: item.data.listProps.id,
@@ -404,7 +404,7 @@
                     url: '/albums/ajax_remove_file',
                     method: 'POST',
                     data: {
-                        album_id: $('#album-photos-input').attr('data-album-id'),
+                        album_month: $('#album-photos-input').attr('data-album-month'),
                         _token: inputEl.attr('data-upload-token'),
                         file: item.name,
                     },
