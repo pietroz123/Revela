@@ -76,7 +76,13 @@
         <div class="form-group row">
             <div class="col-5">
                 <label for="album-name">Nome do Álbum</label>
-                <input class="form-control" name="album-name" id="album-name" type="text" placeholder="Nome do álbum">
+                <input class="form-control" @error('album-name') is-invalid @enderror" name="album-name" id="album-name" type="text" placeholder="Nome do álbum" value="{{ old('album-name') }}">
+
+                @error('album-name')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
         </div>
         

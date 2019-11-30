@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Albums;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Album;
+use App\Photo;
 
 class AlbumController extends Controller
 {
@@ -35,11 +37,47 @@ class AlbumController extends Controller
      */
     public function store(Request $request)
     {
+        // Validations
+        request()->validate([
+            'album-name' => 'string|required',
+            'album-description' => 'string',
+        ]);
+        exit;
+
+        /**
+         * Gets request data
+         */
         $user_id = auth()->user()->id;
         $album_description = request('album-description');
         $album_name = request('album-name');
-        $photos = request('fileuploader-list-files');
-        dd(json_decode($photos));
+        $photos = json_decode(request('fileuploader-list-files'));
+
+        // Check if the number of photos is correct
+        $max_number_photos = auth()->user()->subscription->plan->number_of_photos;
+
+        if (count($photos) != $max_number_photos) {
+            return redirect()->back()->withInput();
+        }
+
+        /**
+         * Create Album
+         */
+        $album = new Album;
+        $album->user_id = $user_id;
+        $album->name = $album_name;
+        $album->description = $album_description;
+        $album->save();
+
+        /**
+         * Save photos on DB
+         */
+        foreach ($photos as $photo) {
+            $p = new Photo;
+            $p->path = $photo['file'];
+            $p->save();
+        }
+
+        return redirect()->route('dashboard.minhas-memorias')->with('success', 'Álbum solicitado com sucesso.');
     }
 
     /**
