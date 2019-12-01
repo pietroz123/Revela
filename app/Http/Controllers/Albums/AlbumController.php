@@ -41,6 +41,7 @@ class AlbumController extends Controller
         request()->validate([
             'album-name' => 'required|string',
             'album-description' => 'string',
+            'album-template' => 'required',
         ]);
         exit;
 

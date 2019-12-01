@@ -179,6 +179,16 @@ $margin-right: 20px;
                 clip-path: polygon(100% 0%, 100% $img-height, 0% $img-height, 0% 0%);
             }
         }
+
+        &.selected {
+            border-bottom: 0 none;
+            box-shadow: 5px 5px 5px 0px rgb(219, 61, 68);
+        }
+
+    }
+
+    input#album-template {
+        display: none;
     }
 }
 

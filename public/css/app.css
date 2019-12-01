@@ -789,6 +789,13 @@ input:-webkit-autofill {
   -webkit-clip-path: polygon(100% 0%, 100% 110px, 0% 110px, 0% 0%);
           clip-path: polygon(100% 0%, 100% 110px, 0% 110px, 0% 0%);
 }
+.templates .template.selected {
+  border-bottom: 0 none;
+  box-shadow: 5px 5px 5px 0px #db3d44;
+}
+.templates input#album-template {
+  display: none;
+}
 
 #my-albums .album-month {
   border-bottom: 1px solid lightgrey;

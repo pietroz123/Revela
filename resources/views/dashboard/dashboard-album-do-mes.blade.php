@@ -20,10 +20,15 @@
         @csrf
 
         <h5 class="mt-5 mb-3">Selecionar Template</h5>
+        @error('album-template')
+            <span class="invalid-feedback d-block" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
         
         <div class="templates">
         
-            <div class="template">
+            <div class="template" data-template-id="1">
                 <div class="template-description">
                     <span>Halloween</span>
                 </div>
@@ -32,7 +37,7 @@
                 </div>
             </div>
         
-            <div class="template">
+            <div class="template" data-template-id="2">
                 <div class="template-description">
                         <span>Férias com amigos</span>
                     </div>
@@ -41,7 +46,7 @@
                 </div>
             </div>
         
-            <div class="template">
+            <div class="template" data-template-id="3">
                 <div class="template-description">
                         <span>Férias com família</span>
                     </div>
@@ -50,7 +55,7 @@
                 </div>
             </div>
         
-            <div class="template">
+            <div class="template" data-template-id="4">
                 <div class="template-description">
                         <span>Clássico</span>
                     </div>
@@ -59,7 +64,7 @@
                 </div>
             </div>
         
-            <div class="template">
+            <div class="template" data-template-id="5">
                 <div class="template-description">
                         <span>Dia-a-Dia</span>
                     </div>
@@ -67,6 +72,9 @@
                         <img src="{{ asset('img/templates/dia-a-dia.jpg') }}" alt="Template de Dia-a-Dia">
                 </div>
             </div>
+
+            {{-- Input to store template ID --}}
+            <input type="hidden" name="album-template" id="album-template">
         
         </div>
         
@@ -120,6 +128,7 @@
 
 @section('scripts')
     <script src="{{ asset('lib/fileuploader/dist/jquery.fileuploader.min.js') }}"></script>
+    <script src="{{ asset('js/dashboard/album-do-mes.js') }}"></script>
     <script>
         $(document).ready(function() {
 
