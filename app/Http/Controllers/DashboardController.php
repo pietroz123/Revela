@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use \FileUploader;
 use Illuminate\Support\Facades\File;
 use App\Plan;
+use App\Album;
 use App\City;
 use App\Template;
 
@@ -111,8 +112,37 @@ class DashboardController extends Controller
         ]);
     }
 
+    /**
+     * Página de Minhas Memórias
+     */
     public function minhasMemorias()
     {
+        /** 
+         * Get all photo albums
+         */
+        $albums = Album::where('user_id', auth()->user()->id)->get();
+        $albums = $albums->groupBy('month');
+
+        foreach ($albums as $month => $month_albums):
+
+            // dd($month_albums);
+
+            foreach ($month_albums as $album):
+
+                // dd($album);
+
+                foreach ($album->photos as $photo):
+
+                    dd($photo);
+    
+                endforeach;
+
+            endforeach;
+
+        endforeach;
+
+        dd($albums);
+
         return view('dashboard.dashboard-minhas-memorias');
     }
 
