@@ -141,7 +141,7 @@ $margin-right: 20px;
     .template {
         display: flex;
         flex-direction: column;
-        max-width: calc(250px - #{$margin-right});
+        width: calc(250px - #{$margin-right});
         max-height: calc(#{$img-height} + 30px);
         margin-top: 15px;
 
@@ -173,6 +173,8 @@ $margin-right: 20px;
         
         .template-image {
             min-height: $img-height;
+            background-size: cover;
+            background-repeat: no-repeat;
             img {
                 width: 100%;
                 border-radius: 0px 0px 4px 4px;

@@ -28,51 +28,15 @@
         
         <div class="templates">
         
-            <div class="template" data-template-id="1">
-                <div class="template-description">
-                    <span>Halloween</span>
-                </div>
-                <div class="template-image">
-                    <img src="{{ asset('img/templates/halloween.png') }}" alt="Template de Halloween">
-                </div>
-            </div>
-        
-            <div class="template" data-template-id="2">
-                <div class="template-description">
-                        <span>Férias com amigos</span>
+            @foreach ($templates as $template)
+                <div class="template" data-template-id="{{ $template->id }}">
+                    <div class="template-description">
+                        <span>{{ $template->name }}</span>
                     </div>
-                    <div class="template-image">
-                        <img src="{{ asset('img/templates/ferias-amigos.jpg') }}" alt="Template de Férias com amigos">
+                    <div class="template-image" style="background-image: url('../{{ $template->photo_path }}')"></div>
                 </div>
-            </div>
+            @endforeach
         
-            <div class="template" data-template-id="3">
-                <div class="template-description">
-                        <span>Férias com família</span>
-                    </div>
-                    <div class="template-image">
-                        <img src="{{ asset('img/templates/ferias-familia.jpg') }}" alt="Template de Férias com família">
-                </div>
-            </div>
-        
-            <div class="template" data-template-id="4">
-                <div class="template-description">
-                        <span>Clássico</span>
-                    </div>
-                    <div class="template-image">
-                        <img src="{{ asset('img/templates/classico.png') }}" alt="Template de Clássico">
-                </div>
-            </div>
-        
-            <div class="template" data-template-id="5">
-                <div class="template-description">
-                        <span>Dia-a-Dia</span>
-                    </div>
-                    <div class="template-image">
-                        <img src="{{ asset('img/templates/dia-a-dia.jpg') }}" alt="Template de Dia-a-Dia">
-                </div>
-            </div>
-
             {{-- Input to store template ID --}}
             <input type="hidden" name="album-template" id="album-template">
         

@@ -7,6 +7,7 @@ use \FileUploader;
 use Illuminate\Support\Facades\File;
 use App\Plan;
 use App\City;
+use App\Template;
 
 class DashboardController extends Controller
 {
@@ -54,8 +55,14 @@ class DashboardController extends Controller
             ]);
         }
 
+        /**
+         * Get Album Templates
+         */
+        $templates = Template::all();
+
         return view('dashboard.dashboard-album-do-mes', [
             'files' => $files,
+            'templates' => $templates,
         ]);
     }
 

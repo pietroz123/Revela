@@ -17,13 +17,14 @@ class CreateAlbumsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('user_id')->unsigned();
             $table->integer('month')->unsigned(); // integer representation of month: 1, 2, 3,..., 12
-            // $table->string('template')
+            $table->bigInteger('template_id')->unsigned();
             $table->string('name');
             $table->text('description')->nullable();
             $table->timestamps();
         });
         Schema::table('albums', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('template_id')->references('id')->on('templates')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
