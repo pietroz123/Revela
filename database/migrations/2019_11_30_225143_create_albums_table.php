@@ -16,6 +16,7 @@ class CreateAlbumsTable extends Migration
         Schema::create('albums', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('user_id')->unsigned();
+            $table->integer('month')->unsigned(); // integer representation of month: 1, 2, 3,..., 12
             // $table->string('template')
             $table->string('name');
             $table->text('description')->nullable();

@@ -76,7 +76,7 @@
         <div class="form-group row">
             <div class="col-5">
                 <label for="album-name">Nome do Álbum</label>
-                <input class="form-control" @error('album-name') is-invalid @enderror" name="album-name" id="album-name" type="text" placeholder="Nome do álbum" value="{{ old('album-name') }}">
+                <input class="form-control @error('album-name') is-invalid @enderror" name="album-name" id="album-name" type="text" placeholder="Nome do álbum" value="{{ old('album-name') }}">
 
                 @error('album-name')
                     <span class="invalid-feedback" role="alert">
@@ -89,7 +89,13 @@
         <div class="form-group row">
             <div class="col-5">
                 <label for="album-description">Descrição Especial (Opcional)</label>
-                <textarea class="form-control" id="album-description" name="album-description" rows="3" placeholder="Descrição"></textarea>
+                <textarea class="form-control @error('album-description') is-invalid @enderror" id="album-description" name="album-description" rows="3" placeholder="Descrição"></textarea>
+
+                @error('album-description')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>   
         </div>
         
