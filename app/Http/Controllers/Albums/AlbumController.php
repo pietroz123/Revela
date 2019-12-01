@@ -43,13 +43,13 @@ class AlbumController extends Controller
             'album-description' => 'string',
             'album-template' => 'required',
         ]);
-        exit;
 
         /**
          * Gets request data
          */
         $user_id = auth()->user()->id;
         $album_description = request('album-description');
+        $album_template = request('album-template');
         $album_name = request('album-name');
         $photos = json_decode(request('fileuploader-list-files'));
 
@@ -65,6 +65,8 @@ class AlbumController extends Controller
          */
         $album = new Album;
         $album->user_id = $user_id;
+        $album->month = date('n');
+        $album->template_id = $album_template;
         $album->name = $album_name;
         $album->description = $album_description;
         $album->save();
@@ -74,7 +76,8 @@ class AlbumController extends Controller
          */
         foreach ($photos as $photo) {
             $p = new Photo;
-            $p->path = $photo['file'];
+            $p->album_id = $album->id;
+            $p->path = $photo->file;
             $p->save();
         }
 
