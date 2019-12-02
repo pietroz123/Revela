@@ -29,11 +29,32 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('dashboard.dashboard-index');
+        $album_available = true;
+        if ( count( Album::where('user_id', auth()->user()->id)->where('month', date('n'))->get() ) > 0 ) {
+            $album_available = false;
+        }
+
+        return view('dashboard.dashboard-index', [
+            'album_available' => $album_available,
+        ]);
     }
 
     public function albumDoMes()
     {
+        /**
+         * Check if user has not created the album of the month already
+         */
+        if ( count( Album::where('user_id', auth()->user()->id)->where('month', date('n'))->get() ) > 0 ) {
+            return redirect()->route('dashboard')->with(
+                'danger', 
+                '
+                    <p><b>Ops!</b> Parece que você já solicitou seu álbum do mês.</p>
+                    <hr>
+                    <p class="mb-0">Houve um erro? Contate nosso suporte em <a href="#!">support@revela.com</a></p>
+                '
+            );
+        }
+
         /**
          * Get album photos
          */
