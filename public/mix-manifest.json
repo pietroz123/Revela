@@ -5,5 +5,6 @@
     "/js/mdbootstrap.js": "/js/mdbootstrap.js",
     "/js/pages/landing.js": "/js/pages/landing.js",
     "/js/dashboard/editar-dados-cadastrais.js": "/js/dashboard/editar-dados-cadastrais.js",
-    "/js/dashboard/album-do-mes.js": "/js/dashboard/album-do-mes.js"
+    "/js/dashboard/album-do-mes.js": "/js/dashboard/album-do-mes.js",
+    "/js/dashboard/albums/show.js": "/js/dashboard/albums/show.js"
 }

@@ -62,13 +62,13 @@
                 <h6 class="text-uppercase font-weight-bold">Links</h6>
                 <hr class="bg-main lighten-1 mb-4 mt-0 d-inline-block" style="width: 60px;">
                 <p>
-                    <a href="#!">Sobre a Revela</a>
+                    <a href="#hero-section">Sobre a Revela</a>
                 </p>
                 <p>
-                    <a href="#!">Nossos Pacotes</a>
+                    <a href="#plans-section">Nossos Pacotes</a>
                 </p>
                 <p>
-                    <a href="#!">Minha Conta</a>
+                    <a href="{{ route('login') }}">Minha Conta</a>
                 </p>
                 <p>
                     <a href="#!">Ajuda</a>

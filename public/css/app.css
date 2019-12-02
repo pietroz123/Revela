@@ -492,6 +492,10 @@ input:-webkit-autofill {
   cursor: not-allowed;
 }
 
+.lg-thumb-item {
+  cursor: pointer !important;
+}
+
 #timeline .timeline-item:after, #timeline .timeline-item:before {
   content: "";
   display: block;
