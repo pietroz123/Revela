@@ -53,6 +53,15 @@ class AlbumController extends Controller
         $album_template = request('album-template');
         $album_name = request('album-name');
         $photos = json_decode(request('fileuploader-list-files'));
+        $dir = '/storage/albums/' . auth()->user()->id . '/' . date('n') . '/';
+
+        // dd($photos);
+        if (strpos($photos[4]->file, $dir) === false) {
+            dd(explode($dir, $photos[4]->file)[1]);
+        }
+        else {
+            dd(explode($dir, $photos[4]->file)[1]);
+        }
 
         // Check if the number of photos is correct
         $max_number_photos = auth()->user()->subscription->plan->number_of_photos;
