@@ -33,6 +33,19 @@ Route::get('/dashboard/minhas-memorias', 'DashboardController@minhasMemorias')->
 
 
 /**
+ * ADMIN DASHBOARD ROUTES
+ */
+Route::namespace('Admin')->prefix('admin')->group(function() {
+
+    Route::get('/dashboard', 'DashboardController@index')->name('dashboard.admin.index');
+    Route::get('/dashboard/pedidos', 'DashboardController@pedidos')->name('dashboard.admin.pedidos');
+
+
+});
+
+
+
+/**
  * USER ROUTES
  */
 Route::namespace('Users')->group(function() {

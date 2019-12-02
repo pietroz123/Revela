@@ -323,7 +323,6 @@ $g: linear-gradient(116.7deg, rgba(37, 130, 196, 0.65) 0%, rgba(37, 130, 196, 0)
 // =======================================================
 
 .order-status {
-    background-color: rgba(0, 151, 19, 0.5);
     padding: 5px 10px;
     text-align: center;
     color:white;
@@ -332,6 +331,14 @@ $g: linear-gradient(116.7deg, rgba(37, 130, 196, 0.65) 0%, rgba(37, 130, 196, 0)
     &::selection { background: transparent; }
     &::-moz-selection { background: transparent; }
     cursor: default;
+    &.solicitado {
+        color: #6cb2eb;
+        background-color: rgba(108, 178, 235, 0.11);
+    }
+    &.aprovado {
+        color: #3CC13B;
+        background-color: rgba(59, 193, 59, 0.11);
+    }
 }
 
 

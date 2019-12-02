@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Dashboard')
+@section('title', 'Meus Pedidos')
 
 @section('dashboard-sidebar')
     @include('dashboard.components.sidebar')    
@@ -10,9 +10,9 @@
 
     <h2>Meus Pedidos</h2>   
 
-    <div class="mt-5">
+    <div class="mt-4">
      
-        {{-- @if (count($pedidos) > 0) --}}
+        @if (count($orders) > 0)
             <table class="table table-cadastro">
                 <thead>
                     <tr class="header">
@@ -25,29 +25,29 @@
                     </tr>
                 </thead>
                 <tbody> 
-                    {{-- @foreach ($pedidos as $pedido) --}}
+                    @foreach ($orders as $order)
                         <tr>
-                            <td>011298082497</td>
-                            <td>1201</td>
-                            <td>5</td>
-                            <td>21/11/2019</td>
+                            <td>#{{ $order->id }}</td>
+                            <td>#{{ $order->album->id }}</td>
+                            <td>{{ count($order->album->photos) }}</td>
+                            <td>{{ date('d/m/Y', strtotime($order->created_at)) }}</td>
                             <td>
-                                <span class="order-status">
-                                    Finalizado
+                                <span class="order-status {{ $order->status }}">
+                                    <span class="text-capitalize">{{ $order->status }}</span>
                                 </span>
                             </td>
                             <td class="td-actions">
                                 <button class="btn-action"><i class="far fa-file-pdf"></i></button>
                             </td>
                         </tr>
-                    {{-- @endforeach --}}
+                    @endforeach
                 </tbody>
             </table>
-        {{-- @else --}}
-            {{-- <div class="alert alert-info" role="alert">
+        @else
+            <div class="alert alert-info" role="alert">
                 Nenhum pedido foi encontrado.
-            </div> --}}
-        {{-- @endif --}}
+            </div>
+        @endif
     </div>
 
 @endsection

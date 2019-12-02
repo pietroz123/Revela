@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Album;
 use App\Photo;
+use App\Order;
 
 class AlbumController extends Controller
 {
@@ -80,6 +81,15 @@ class AlbumController extends Controller
             $p->path = $photo->file;
             $p->save();
         }
+
+        /**
+         * Create Order
+         */
+        $order = new Order;
+        $order->user_id = $user_id;
+        $order->album_id = $album->id;
+        $order->status = 'solicitado';
+        $order->save();
 
         return redirect()->route('dashboard.minhas-memorias')->with('success', 'Álbum solicitado com sucesso.');
     }

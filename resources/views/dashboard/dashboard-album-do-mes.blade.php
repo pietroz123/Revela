@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Dashboard')
+@section('title', 'Álbum do Mês')
 
 @section('styles')
     <link href="{{ asset('lib/fileuploader/dist/font/font-fileuploader.css') }}" rel="stylesheet">

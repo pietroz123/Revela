@@ -36,7 +36,7 @@ class TemplatesTableSeeder extends Seeder
         ]);
         Template::create([
             'name' => 'Natal',
-            'photo_path' => 'img/templates/natal.jpeg',
+            'photo_path' => 'img/templates/natal.jpg',
         ]);
     }
 }

@@ -9,7 +9,7 @@
 
 @section('dashboard-content')
 
-    <h2>Bem vindo(a) de volta, {{ explode(' ', Auth::user()->name)[0] }}</h2>
+    <h2 class="mb-4">Bem vindo(a) de volta, {{ explode(' ', Auth::user()->name)[0] }}</h2>
 
     @if ($album_available)
         <h5 class="mt-5">O seu álbum do mês já está liberado! 😍</h5>
@@ -18,6 +18,11 @@
             <span class="content text-uppercase">Solicitar meu álbum</span>
             <span class="icon"><i class="fa fa-arrow-right" aria-hidden="true"></i></span>
         </a>
+    @else
+        <p class="note note-info">
+            <strong>Oba!</strong> Seu álbum está sendo preparado!
+        </p>
+
     @endif
     
 @endsection

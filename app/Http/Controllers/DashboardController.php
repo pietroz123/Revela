@@ -9,6 +9,7 @@ use App\Plan;
 use App\Album;
 use App\City;
 use App\Template;
+use App\Order;
 
 class DashboardController extends Controller
 {
@@ -90,7 +91,11 @@ class DashboardController extends Controller
 
     public function meusPedidos()
     {
-        return view('dashboard.dashboard-meus-pedidos');
+        $orders = Order::where('user_id', auth()->user()->id)->get();
+
+        return view('dashboard.dashboard-meus-pedidos', [
+            'orders' => $orders,
+        ]);
     }
 
     public function dadosCadastrais()
