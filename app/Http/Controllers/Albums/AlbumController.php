@@ -102,7 +102,12 @@ class AlbumController extends Controller
      */
     public function show($id)
     {
-        //
+        // Get Album
+        $album = Album::find($id);
+
+        return view('dashboard.albums.show', [
+            'album' => $album,
+        ]);
     }
 
     /**

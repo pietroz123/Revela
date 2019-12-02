@@ -19,7 +19,7 @@
                 <div class="albums">
                 @foreach ($month_albums as $album)
                     <div class="album-card hoverable">
-                        <a href="#!">
+                        <a href="{{ route('albums.show', $album->id) }}">
                             <img src="{{ $album->photos->first()->path }}" alt="Album Photo">
                             <div class="album-name">{{ $album->name }}</div>
                         </a>

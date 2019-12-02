@@ -245,6 +245,16 @@ $margin-right: 20px;
             padding: 10px;
             font-size: 14px;
             font-weight: 600;
+            font-family: $font-exo;
         }
+    }
+}
+
+/**
+ * Album
+ */
+.album-photos {
+    .album-img {
+        max-width: 200px;
     }
 }

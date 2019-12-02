@@ -17,7 +17,7 @@
     <p>{{ Auth::user()->name }}</p>
 
     <p class="subscription-plan mb-2">
-        Administrador
+        Administradora
     </p>
 </div>
 

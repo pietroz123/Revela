@@ -73,7 +73,14 @@ Route::namespace('Users')->group(function() {
 
 Route::namespace('Albums')->group(function() {
     
-    Route::resource('/albums', 'AlbumController');
+    // Resource Routes
+    Route::get('/albums', 'AlbumController@index')->name('albums.index');
+    Route::get('/albums/create','AlbumController@create')->name('albums.create');
+    Route::post('/albums', 'AlbumController@store')->name('albums.store');
+    Route::get('/albums/{user}', 'AlbumController@show')->name('albums.show');
+    Route::get('/albums/{user}/edit', 'AlbumController@edit')->name('albums.edit');
+    Route::put('/albums/{user}/update', 'AlbumController@update')->name('albums.update');
+    Route::delete('/albums/{user}', 'AlbumController@destroy')->name('albums.destroy');
 
     // Photo Management
     Route::post('albums/ajax_main_file', 'AlbumPhotosController@setAsMainFile');

@@ -414,6 +414,11 @@ body {
   float: right;
 }
 
+#admin-pedidos {
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
 .btn {
   font-size: 1rem;
   text-transform: none;
@@ -865,4 +870,12 @@ input:-webkit-autofill {
   padding: 10px;
   font-size: 14px;
   font-weight: 600;
+  font-family: "Exo", sans-serif;
+}
+
+/**
+ * Album
+ */
+.album-photos .album-img {
+  max-width: 200px;
 }
