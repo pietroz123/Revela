@@ -7,6 +7,8 @@
 @endsection
 
 @section('dashboard-content')
+
+    <h2 class="mb-4">Minhas Memórias</h2>
     
     @if (count($albums) == 0)
         <div class="alert alert-info mt-3" role="alert">
