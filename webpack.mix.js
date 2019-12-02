@@ -35,3 +35,4 @@ mix.scripts('resources/js/pages/landing.js', 'public/js/pages/landing.js');
 // Scripts Dashboard
 mix.scripts('resources/js/dashboard/editar-dados-cadastrais.js', 'public/js/dashboard/editar-dados-cadastrais.js');
 mix.scripts('resources/js/dashboard/album-do-mes.js', 'public/js/dashboard/album-do-mes.js');
+mix.scripts('resources/js/dashboard/albums/show.js', 'public/js/dashboard/albums/show.js');

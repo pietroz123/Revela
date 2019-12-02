@@ -7,3 +7,5 @@
 require('./bootstrap');
 
 window.jquerymask = require('jquery-mask-plugin');
+
+import 'lightgallery/dist/js/lightgallery-all';

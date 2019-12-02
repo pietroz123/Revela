@@ -876,6 +876,28 @@ input:-webkit-autofill {
 /**
  * Album
  */
-.album-photos .album-img {
-  max-width: 200px;
+#album-photos {
+  display: flex;
+}
+#album-photos .album-img-container {
+  width: calc(25% - 2px);
+}
+#album-photos .album-img-container:not(:last-of-type) {
+  margin-right: 2px;
+}
+#album-photos .album-img-container .mask {
+  transition: background-color 0.15s ease 0s;
+}
+#album-photos .album-img-container i {
+  font-size: 22px;
+}
+#album-photos .album-img-container:hover .mask {
+  background-color: rgba(0, 0, 0, 0.596);
+}
+
+.my-zoom img {
+  transition: transform 0.15s ease 0s;
+}
+.my-zoom:hover img {
+  transform: scale3d(1.1, 1.1, 1.1);
 }
