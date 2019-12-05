@@ -51,12 +51,12 @@
                 Meus Pedidos
             </a>
         </li>
-        <li class="dashboard-sidebar-item">
+        {{-- <li class="dashboard-sidebar-item">
             <a href="#!">
                 <i class="fas fa-image"></i>
                 Álbuns Avulsos
             </a>
-        </li>
+        </li> --}}
     </ul>
 
     <span class="dashboard-sidebar-divider">Dados Gerais</span>
