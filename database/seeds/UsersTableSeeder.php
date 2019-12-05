@@ -45,5 +45,12 @@ class UsersTableSeeder extends Seeder
             'subscription_start' => $start->modify('+1 day')->format('Y-m-d H:i:s'),
             'subscription_end' => $start->modify('+' . $plan->number_of_months . ' months')->format('Y-m-d H:i:s'),
         ]);
+
+        // Create ADMIN
+        $user = User::create([
+            'name' => 'Admin',
+            'email' => 'admin@email.com',
+            'password' => bcrypt('admin123'),
+        ]);
     }
 }
