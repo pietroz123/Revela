@@ -41,8 +41,8 @@
 
         <div class="tab-content card px-4 pb-4" id="profile-data-tab-content">
             <div class="tab-pane fade show active" id="solicitado" role="tabpanel" aria-labelledby="solicitado-tab">
-                <div class="mt-4">
-                    {{-- @if (count($orders) > 0) --}}
+                <div class="mt-5">
+                    @if (count($solicitado) > 0)
                         <table class="table table-cadastro">
                             <thead>
                                 <tr class="header">
@@ -52,26 +52,26 @@
                                 </tr>
                             </thead>
                             <tbody> 
-                                {{-- @foreach ($orders as $order) --}}
+                                @foreach ($solicitado as $order)
                                     <tr>
-                                        <td>Bianca</td>
-                                        <td>#1</td>
-                                        <td>01/12/2019</td>
+                                        <td>{{ $order->user->name }}</td>
+                                        <td>#{{ $order->album->id }}</td>
+                                        <td>{{ date('d/m/Y', strtotime($order->created_at)) }}</td>
                                     </tr>
-                                {{-- @endforeach --}}
+                                @endforeach
                             </tbody>
                         </table>
-                    {{-- @else
+                    @else
                         <div class="alert alert-info" role="alert">
                             Nenhum pedido foi encontrado.
                         </div>
-                    @endif --}}
+                    @endif
                 </div>
             </div>
 
             <div class="tab-pane fade" id="aprovado" role="tabpanel" aria-labelledby="aprovado-tab">
-                <div class="mt-4">
-                    {{-- @if (count($orders) > 0) --}}
+                <div class="mt-5">
+                    @if (count($aprovado) > 0)
                         <table class="table table-cadastro">
                             <thead>
                                 <tr class="header">
@@ -81,27 +81,27 @@
                                 </tr>
                             </thead>
                             <tbody> 
-                                {{-- @foreach ($orders as $order) --}}
+                                @foreach ($aprovado as $order)
                                     <tr>
-                                        <td>Bianca</td>
-                                        <td>#1</td>
-                                        <td>01/12/2019</td>
+                                        <td>{{ $order->user->name }}</td>
+                                        <td>#{{ $order->album->id }}</td>
+                                        <td>{{ date('d/m/Y', strtotime($order->created_at)) }}</td>
                                     </tr>
-                                {{-- @endforeach --}}
+                                @endforeach
                             </tbody>
                         </table>
-                    {{-- @else
+                    @else
                         <div class="alert alert-info" role="alert">
                             Nenhum pedido foi encontrado.
                         </div>
-                    @endif --}}
+                    @endif
                 </div>
             
             </div>
 
             <div class="tab-pane fade" id="producao" role="tabpanel" aria-labelledby="producao-tab">
-                <div class="mt-4">
-                    {{-- @if (count($orders) > 0) --}}
+                <div class="mt-5">
+                    @if (count($em_producao) > 0)
                         <table class="table table-cadastro">
                             <thead>
                                 <tr class="header">
@@ -111,27 +111,27 @@
                                 </tr>
                             </thead>
                             <tbody> 
-                                {{-- @foreach ($orders as $order) --}}
+                                @foreach ($em_producao as $order)
                                     <tr>
-                                        <td>Bianca</td>
-                                        <td>#1</td>
-                                        <td>01/12/2019</td>
+                                        <td>{{ $order->user->name }}</td>
+                                        <td>#{{ $order->album->id }}</td>
+                                        <td>{{ date('d/m/Y', strtotime($order->created_at)) }}</td>
                                     </tr>
-                                {{-- @endforeach --}}
+                                @endforeach
                             </tbody>
                         </table>
-                    {{-- @else
+                    @else
                         <div class="alert alert-info" role="alert">
                             Nenhum pedido foi encontrado.
                         </div>
-                    @endif --}}
+                    @endif
                 </div>
                                     
             </div>
 
             <div class="tab-pane fade" id="transito" role="tabpanel" aria-labelledby="transito-tab">
-                <div class="mt-4">
-                    {{-- @if (count($orders) > 0) --}}
+                <div class="mt-5">
+                    @if (count($em_transito) > 0)
                         <table class="table table-cadastro">
                             <thead>
                                 <tr class="header">
@@ -142,28 +142,28 @@
                                 </tr>
                             </thead>
                             <tbody> 
-                                {{-- @foreach ($orders as $order) --}}
+                                @foreach ($em_transito as $order)
                                     <tr>
-                                        <td>Bianca</td>
-                                        <td>#1</td>
-                                        <td>01/12/2019</td>
+                                        <td>{{ $order->user->name }}</td>
+                                        <td>#{{ $order->album->id }}</td>
+                                        <td>{{ date('d/m/Y', strtotime($order->created_at)) }}</td>
                                         <td>05/12/2019</td>
                                     </tr>
-                                {{-- @endforeach --}}
+                                @endforeach
                             </tbody>
                         </table>
-                    {{-- @else
+                    @else
                         <div class="alert alert-info" role="alert">
                             Nenhum pedido foi encontrado.
                         </div>
-                    @endif --}}
+                    @endif
                 </div>              
                 
             </div>
 
             <div class="tab-pane fade" id="entregue" role="tabpanel" aria-labelledby="entregue-tab">
-                <div class="mt-4">
-                    {{-- @if (count($orders) > 0) --}}
+                <div class="mt-5">
+                    @if (count($entregue) > 0)
                         <table class="table table-cadastro">
                             <thead>
                                 <tr class="header">
@@ -174,28 +174,28 @@
                                 </tr>
                             </thead>
                             <tbody> 
-                                {{-- @foreach ($orders as $order) --}}
+                                @foreach ($entregue as $order)
                                     <tr>
-                                        <td>Bianca</td>
-                                        <td>#1</td>
-                                        <td>01/12/2019</td>
+                                        <td>{{ $order->user->name }}</td>
+                                        <td>#{{ $order->album->id }}</td>
+                                        <td>{{ date('d/m/Y', strtotime($order->created_at)) }}</td>
                                         <td>05/12/2019</td>
                                     </tr>
-                                {{-- @endforeach --}}
+                                @endforeach
                             </tbody>
                         </table>
-                    {{-- @else
+                    @else
                         <div class="alert alert-info" role="alert">
                             Nenhum pedido foi encontrado.
                         </div>
-                    @endif --}}
+                    @endif
                 </div>
                                     
             </div>
 
             <div class="tab-pane fade" id="cancelado" role="tabpanel" aria-labelledby="cancelado-tab">
-                <div class="mt-4">
-                    {{-- @if (count($orders) > 0) --}}
+                <div class="mt-5">
+                    @if (count($cancelado) > 0)
                         <table class="table table-cadastro">
                             <thead>
                                 <tr class="header">
@@ -206,21 +206,21 @@
                                 </tr>
                             </thead>
                             <tbody> 
-                                {{-- @foreach ($orders as $order) --}}
+                                @foreach ($cancelado as $order)
                                     <tr>
-                                        <td>Bianca</td>
-                                        <td>#1</td>
-                                        <td>01/12/2019</td>
-                                        <td>01/12/2019</td>
+                                        <td>{{ $order->user->name }}</td>
+                                        <td>#{{ $order->album->id }}</td>
+                                        <td>{{ date('d/m/Y', strtotime($order->created_at)) }}</td>
+                                        <td>{{ date('d/m/Y', strtotime($order->created_at)) }}</td>
                                     </tr>
-                                {{-- @endforeach --}}
+                                @endforeach
                             </tbody>
                         </table>
-                    {{-- @else
+                    @else
                         <div class="alert alert-info" role="alert">
                             Nenhum pedido foi encontrado.
                         </div>
-                    @endif --}}
+                    @endif
                 </div>
                     
             </div>
