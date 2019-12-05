@@ -67,12 +67,12 @@
                 Dados Cadastrais
             </a>
         </li>
-        <li class="dashboard-sidebar-item">
+        {{-- <li class="dashboard-sidebar-item">
             <a href="#!">
                 <i class="fas fa-cog"></i>
                 Configurações
             </a>
-        </li>
+        </li> --}}
         <li class="dashboard-sidebar-item">
             <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                 <i class="fas fa-sign-out-alt"></i>
